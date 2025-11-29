@@ -8,12 +8,12 @@
     
     body{
           padding: 0.5rem;
-      /* min-height: 100vh; */
+      min-height: 95vh;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       background-image: linear-gradient(160deg, rgba(255, 0, 0, 0.316), rgba(0, 0, 255, 0.365), rgba(0, 128, 0, 0.438));
     }
     .main-container{
@@ -299,7 +299,7 @@
     /* responsive */
     @media (max-width:435px){
         body{
-          height:80%;
+          height:100vh;
           width:100%;
               /* padding-left:0.5rem; */
               /* padding-right:0.5rem; */
@@ -364,6 +364,7 @@
 
 
     }
+
 
 
 
