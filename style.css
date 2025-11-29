@@ -299,11 +299,11 @@
     /* responsive */
     @media (max-width:435px){
         body{
-          min-height:80vh;
+          height:auto;
           width:100%;
               /* padding-left:0.5rem; */
               /* padding-right:0.5rem; */
-              padding: 1rem;
+              padding: 1rem ;
               justify-content:flex-start;
         }
         .screen-area{
@@ -365,6 +365,7 @@
 
 
     }
+
 
 
 
