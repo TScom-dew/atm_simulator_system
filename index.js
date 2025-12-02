@@ -1,7 +1,3 @@
-
-
-/// new file 
-// x-index.js (fixed & hardened)
 // Button–Message Mapping
 const hoverMap = {
   Withdrawal: "Withdrawalmsg",
@@ -406,4 +402,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 }); // DOMContentLoaded end
+
 
