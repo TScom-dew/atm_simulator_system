@@ -87,7 +87,7 @@
         <h2>Enter PIN</h2>
         <p class="muted">For account: <span id="accLabel"></span></p>
         <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN" />
-        <div class="row" style="width:100%">
+        <div class="row" style="width:100">
           <button id="pinSubmit">Submit PIN</button>
           <button id="ejectBtn" class="right">Eject</button>
         </div>
@@ -98,20 +98,16 @@
         <h2 id="welcomeName">Welcome</h2>
         <p class="muted">Choose your action</p>
         <div class="menu">
-          <!-- <button style="color: black;" title="Withdraw Cash" id="btnWithdraw">Withdraw Cash</button>
-          <button style="color: black;" title="Deposit Cas" id="btnDeposit">Deposit Cash</button>
-          <button style="color: black;" title="Balance Enquiry" id="btnBalance">Balance Enquiry</button>
-          <button style="color: black;" title="Change PIN" id="btnChangePin">Change PIN</button>
-          <button style="color: black;" title="Exit" id="btnLogout">Exit</button> -->
+         
         </div>
         <p id="menuNote" class="note"></p>
       </div>
-        <!-- screen-3.1 -->
+        <!-- screen-4.1 -->
         <div class="screen-inner hidden" id="screen-withdraw">
           <h2>Withdraw</h2>
           <p class="muted">Available balance: ₹<span id="availBalW"></span></p>
           <input type="number" id="withdrawAmt" min="100" step="100" placeholder="Enter amount (min ₹100)" />
-          <div class="row" style="width:100%">
+          <div class="row" style="width:100">
             <button id="withdrawSubmit">Withdraw</button>
             <button id="withdrawBack" class="right">Back</button>
           </div>
@@ -122,7 +118,7 @@
           <h2>Deposit</h2>
           <p class="muted">You may deposit any amount</p>
           <input type="number" id="depositAmt" min="1" placeholder="Enter deposit amount" />
-          <div class="row" style="width:100%">
+          <div class="row" style="width:100">
             <button id="depositSubmit">Deposit</button>
             <button id="depositBack" class="right">Back</button>
           </div>
@@ -132,7 +128,7 @@
         <div class="screen-inner hidden" id="screen-balance">
           <h2>Balance</h2>
           <p class="muted">Account: <span id="balAcc"></span></p>
-          <p style="font-size:1.3rem">₹<span id="balAmount"></span></p>
+          <p style="font-size:1.3">₹<span id="balAmount"></span></p>
           <button id="balBack">Back</button>
         </div>
         <!-- screen-4.4 -->
@@ -146,7 +142,7 @@
           <h2>Change PIN</h2>
           <input type="password" id="newPin" maxlength="4" placeholder="New 4-digit PIN" />
           <input type="password" id="confirmPin" maxlength="4" placeholder="Confirm PIN" />
-          <div class="row" style="width:100%">
+          <div class="row" style="width:100">
             <button id="changePinSubmit">Change</button>
             <button id="changePinBack" class="right">Back</button>
           </div>
@@ -180,26 +176,26 @@
           <img src="withdrawal.png" alt="withdrawal"> <br>
           <span id="Withdrawalmsg" class="hide" >Cash Withdrawal</span>
         </button>
-        <button class="side-btn"  id="balence"  style="padding-left: 0.1rem;padding-top: 0.1rem;">
+        <button class="side-btn"  id="balence"  style="padding-left: 0.1;padding-top: 0.1;">
           <img src="balence.png" alt="balence"> <br>
           <span id="balencemsg" class="hide" >Check Balance</span>
         </button>
-        <button class="side-btn"  id="changepin" style="padding-left: 0.1rem;">
+        <button class="side-btn"  id="changepin" style="padding-left: 0.1;">
           <img src="pinchange.png" alt="pinchange-icon"> <br>
-          <span id="changepinmsg" class="hide" style="left: 11.2rem;">Change PIN</span>
+          <span id="changepinmsg" class="hide" style="left: 11.2;">Change PIN</span>
         </button>
       </div>
       <div class="side-col">
         <button class="side-btn"  id="casedeposite" >
-          <img src="casedeposite.png" alt="casedeposite" style="padding: .1rem;">  <br>
+          <img src="casedeposite.png" alt="casedeposite" style="padding: .1;">  <br>
           <span id="casedepositemsg" class="hide" >Case Deposite</span>
         </button>
         <button class="side-btn"  id="ministatement">
-          <img src="ministatement.png" alt="ministatement" style="padding: .15rem;"> <br>
+          <img src="ministatement.png" alt="ministatement" style="padding: .15;"> <br>
           <span id="ministatementmsg" class="hide" >Mini Statement</span>
         </button>
         <button class="side-btn"  id="exit">
-          <img src="exit.png" alt="exit-icon" style="padding: .15rem;"> <br>
+          <img src="exit.png" alt="exit-icon" style="padding: .15;"> <br>
           <span id="exitmsg" class="hide" >Exit</span>
         </button>
       </div>
