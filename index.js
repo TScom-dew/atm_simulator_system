@@ -1,14 +1,15 @@
-// Button–Message Mapping
-const hoverMap = {
-  Withdrawal: "Withdrawalmsg",
-  balence: "balencemsg",
-  changepin: "changepinmsg",
-  casedeposite: "casedepositemsg",
-  ministatement: "ministatementmsg",
-  exit: "exitmsg"
-};
-
 document.addEventListener("DOMContentLoaded", () => {
+    // Button–Message Mapping
+    const hoverMap = {
+      Withdrawal: "Withdrawalmsg",
+      balence: "balencemsg",
+      changepin: "changepinmsg",
+      casedeposite: "casedepositemsg",
+      ministatement: "ministatementmsg",
+      exit: "exitmsg"
+    };
+
+
   // DEMO ACCOUNT DATABASE
   const accounts = {};
 
@@ -402,5 +403,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 }); // DOMContentLoaded end
+
 
 
