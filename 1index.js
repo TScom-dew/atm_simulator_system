@@ -727,7 +727,7 @@ function goBack(){
      }
     };
 
-  }
+
   // Withdrawn Submit 
   
   if (withdrawSubmit) {
@@ -1150,6 +1150,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
