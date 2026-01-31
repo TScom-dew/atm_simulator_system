@@ -19,7 +19,7 @@
   --light-box: #eef2ff;
 }
 
-/* 🔹 CHANGE 1: Dark mode thoda kam dark */
+/*  Dark mode */
 body.dark{
   --bg-main: linear-gradient(160deg,#0b1220,#111827,#0b1220);
   --text-main: #e5e7eb;
@@ -44,7 +44,7 @@ body{
   scroll-behavior: smooth;
 }
 
-/* ================= SEO ================= */
+/*  For  seo */
    .seo-content{
      max-width: 50vw;
      min-height: 100vh;
@@ -126,6 +126,10 @@ body{
 
 .atm-features li:hover::after{
   left: 100%;
+}
+
+.atm-features strong{
+     margin-right:5px;
 }
 
 
@@ -1005,6 +1009,7 @@ body.dark .lang-box button{
     width:420px;
   }
 }
+
 
 
 
