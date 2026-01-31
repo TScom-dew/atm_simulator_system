@@ -467,6 +467,7 @@ const hoverMap = {
       .forEach(s => s.classList.add("hidden"));
     const el = $(screenId);
     if(el) el.classList.remove("hidden");
+     
   }
   
 
@@ -534,7 +535,7 @@ const hoverMap = {
       show("process-icon");
       setTimeout(() => {
         show("screen-pin");
-        $("pinInput").focus();
+        if($("pinInput"))pinInput.focus();
       }, 800);
     };
   }
@@ -707,7 +708,7 @@ function goBack(){
   if (WithdrawalBtn) {
     WithdrawalBtn.onclick = () => {
 
-      if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
 
       checkNewDay();  // 
 
@@ -1152,6 +1153,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
