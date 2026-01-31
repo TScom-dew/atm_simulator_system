@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOM helpers
   const $ = id => document.getElementById(id);
-
+// const $= (selector)=>document.querySelector(selector);
+  // const $$= (selector)=> document.querySelectorAll(selector);
 
   // Language Dictionary(js)
   // ================= LANGUAGE DICTIONARY =================
@@ -19,25 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
       headerDesc: "ATM Simulator System is a mini project developed using HTML, CSS and JavaScript. It simulates real ATM operations in a simple and interactive way.",
       // nav
       featureWithdraw: "Cash Withdrawal",
-      featureWithdrawDesc: "Withdraw available cash from account",
+      featureWithdrawDesc: "– Withdraw available cash from account",
       
       featureBalance: "Check Balance",
-      featureBalanceDesc: "View current account balance",
+      featureBalanceDesc: "– View current account balance",
 
       featureChangePin: "Change PIN",
-      featureChangePinDesc: "Securely change ATM PIN",
+      featureChangePinDesc: "– Securely change ATM PIN",
 
       featureDeposit: "Cash Deposit",
-      featureDepositDesc: "Deposit cash into account",
+      featureDepositDesc: "– Deposit cash into account",
 
       featureMiniStmt: "Mini Statement",
-      featureMiniStmtDesc: "View recent transaction history",
+      featureMiniStmtDesc: "– View recent transaction history",
 
       featureExit: "Exit",
-      featureExitDesc: "Safely exit the ATM system",
+      featureExitDesc: "– Safely exit the ATM system",
 
       featureNoCash: "No Cash",
-      featureNoCashDesc: "Displays message when cash withdraw",
+      featureNoCashDesc: "– Displays message when cash withdraw",
 
 
     // General
@@ -113,25 +114,25 @@ document.addEventListener("DOMContentLoaded", () => {
     
       // nav
       featureWithdraw: "नकद निकासी",
-      featureWithdrawDesc: "खाते से नकद निकालें",
+      featureWithdrawDesc: "– खाते से नकद निकालें",
       
       featureBalance: "बैलेंस देखें",
-      featureBalanceDesc: "वर्तमान खाता बैलेंस देखें",
+      featureBalanceDesc: "– वर्तमान खाता बैलेंस देखें",
 
       featureChangePin: "पिन बदलें",
-      featureChangePinDesc: "ATM पिन को सुरक्षित रूप से बदलें",
+      featureChangePinDesc: "– ATM पिन को सुरक्षित रूप से बदलें",
 
       featureDeposit: "नकद जमा",
-      featureDepositDesc: "खाते में नकद जमा करें",
+      featureDepositDesc: "– खाते में नकद जमा करें",
 
       featureMiniStmt: "मिनी स्टेटमेंट",
-      featureMiniStmtDesc: "हाल की लेन-देन की जानकारी देखें",
+      featureMiniStmtDesc: "– हाल की लेन-देन की जानकारी देखें",
 
       featureExit: "बाहर जाएँ",
-      featureExitDesc: "एटीएम सिस्टम से सुरक्षित रूप से बाहर निकलें",
+      featureExitDesc: "– एटीएम सिस्टम से सुरक्षित रूप से बाहर निकलें",
 
       featureNoCash: "कोई नकद नहीं",
-      featureNoCashDesc: "नकद निकालने पर संदेश दिखाता है",
+      featureNoCashDesc: "– नकद निकालने पर संदेश दिखाता है",
 
 
     // General
@@ -346,8 +347,10 @@ $("lang-hi").onclick = () => {
   applyLanguage();
 };
 
+  /*End of translating proccess*/
 
 
+  
 // Button–Message Mapping
 const hoverMap = {
   Withdrawal: "Withdrawalmsg",
@@ -360,14 +363,14 @@ const hoverMap = {
 
          
 
-  // DEMO ACCOUNT DATABASE
-  const accounts = {};
+                    // DEMO ACCOUNT DATABASE
+                        const accounts = {};
 
   
-  // Transaction History
-  const transactions = {};
+                    // Transaction History
+                    const transactions = {};
 
-  // ELEMENTS (may return null if HTML lacks them — we'll guard)
+  // ELEMENTS 
   const accInput = $("accNumber");
   const accSubmit = $("accSubmit");
   const accLabel = $("accLabel");
@@ -388,7 +391,9 @@ const hoverMap = {
   const balAcc = $("balAcc");
   const balAmount = $("balAmount");
 
-  // dark/light mode
+
+  
+                                                    /* dark/light mode  */
   
   const toggleBtn = $("themeToggle");
 
@@ -399,7 +404,7 @@ const hoverMap = {
     document.body.classList.add("dark");
   }
 
-  // Toggle manually
+                                                      // Toggle manually
   toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 
@@ -411,11 +416,12 @@ const hoverMap = {
   });
 
 
+  /* screen System*/
 
   let currentAccount = null;
   let accountsLoaded = false;
 
-  // Initially disable side buttons (if present)
+                                      // Initially disable side buttons (if present)
   function setSideButtonsEnabled(enabled) {
     for (let btnId in hoverMap) {
       const btn = $(btnId);
@@ -427,7 +433,8 @@ const hoverMap = {
   }
   setSideButtonsEnabled(false);
 
-  // Load accounts.json
+                                        // Load accounts.json
+  
   fetch("accounts.json")
     .then(result => {
       if (!result.ok) throw new Error("Failed to fetch accounts.json: " + result.status);
@@ -447,11 +454,21 @@ const hoverMap = {
   
     // ATM SCREEN SYSTEM
   // SCREEN HANDLER
-  function show(screenId) {
-    document.querySelectorAll(".screen-inner").forEach(s => s.classList.add("hidden"));
+  // function show(screenId) {
+  //   document.querySelectorAll(".screen-inner")
+  //    .forEach(s => s.classList.add("hidden"));
+  //     const el = $(screenId);
+  //     if (el) el.classList.remove("hidden");
+  // }
+  
+  /*comment part is changed*/
+   function show(screenId){
+    document.querySelectorAll(".screen-inner")
+      .forEach(s => s.classList.add("hidden"));
     const el = $(screenId);
-    if (el) el.classList.remove("hidden");
+    if(el) el.classList.remove("hidden");
   }
+  
 
   // Hover messages - only if elements exist
   for (let btnId in hoverMap) {
@@ -471,9 +488,7 @@ const hoverMap = {
   // Login pe lock state LOAD karo
 
   function loadLockState() {
-    const saved = JSON.parse(
-      localStorage.getItem("lock_" + currentAccount)
-    );
+    const saved = JSON.parse( localStorage.getItem("lock_" + currentAccount));
   
     if (saved) {
       accounts[currentAccount].pinAttempts = saved.pinAttempts;
@@ -507,9 +522,13 @@ const hoverMap = {
       // Init empty history if not exists
       if (!transactions[currentAccount]) {
        transactions[currentAccount] = [];
+        
+        // transactions[currentAccount] = transactions[currentAccount] + []; //isase all history load ho jayega
+        //localStorage me aur local storage ka memory size bahut kam hota hai
+        
       }
 
-      loadLockState();
+      loadLockState();// calling the function for account laoding
 
       // show process then pin
       show("process-icon");
@@ -520,11 +539,10 @@ const hoverMap = {
 
   // Save lockState funtion
   function saveLockState() {
-    localStorage.setItem(
-      "lock_" + currentAccount,
-      JSON.stringify({
-        pinAttempts: accounts[currentAccount].pinAttempts,
-        isLocked: accounts[currentAccount].isLocked
+    localStorage.setItem("lock_" + currentAccount,
+        JSON.stringify({  
+          pinAttempts: accounts[currentAccount].pinAttempts,
+          isLocked: accounts[currentAccount].isLocked
       })
     );
   }
@@ -541,7 +559,7 @@ const hoverMap = {
   
       const acc = accounts[currentAccount];
   
-      //  already locked
+      //  checking account locked or not
       if (acc.isLocked) {
         // pinMsg.textContent ="Account locked! Contact bank admin.";
         pinMsg.textContent = LANG[currentLang].accLocked;
@@ -552,26 +570,25 @@ const hoverMap = {
   
       //  correct PIN
       if (enteredPin === acc.pin) {
-        acc.pinAttempts = 0; // reset
-        saveLockState();
-        pinMsg.textContent = "";
-        welcomeName.textContent =
-          "Welcome, " + acc.name;
-        setSideButtonsEnabled(true);
-        show("screen-menu");
-        return;
+            acc.pinAttempts = 0; // reset
+            saveLockState();
+            pinMsg.textContent = "";
+            welcomeName.textContent =
+              "Welcome, " + acc.name;
+            setSideButtonsEnabled(true);
+            show("screen-menu");
+            
+            return;
       }
   
       //  wrong PIN
       acc.pinAttempts++;
   
       if (acc.pinAttempts >= 3) {
-        acc.isLocked = true;
-        pinMsg.textContent =
-          "Account locked after 3 wrong attempts!";
+          acc.isLocked = true;
+          pinMsg.textContent ="Account locked after 3 wrong attempts!";
       } else {
-        pinMsg.textContent =
-          `Wrong PIN! Attempts left: ${3 - acc.pinAttempts}`;
+        pinMsg.textContent =`Wrong PIN! Attempts left: ${3 - acc.pinAttempts}`;
       }
   
       saveLockState();
@@ -581,9 +598,15 @@ const hoverMap = {
   }
 
   loadUserLimit();
-  
 
-  // LOGOUT / EJECT
+  /*  EXIT BUTTON */
+  $("exit").onclick = () => {
+    currentAccount = null;
+    show("screen-acc");
+  };
+
+  
+  // LOGOUT / EJECT/exit
   const ejectBtn = $("ejectBtn");
   if (ejectBtn) {
     ejectBtn.onclick = () => {
@@ -627,11 +650,20 @@ function goBack(){
   }
 }
 
-document.getElementById("withdrawBack").onclick = goBack;
-document.getElementById("depositBack").onclick = goBack;
-document.getElementById("balBack").onclick = goBack;
-document.getElementById("changePinBack").onclick = goBack;
-document.getElementById("miniBack").onclick = goBack;
+  
+   /* BACK BUTTONS */
+  
+  $("withdrawBack").onclick = () => show("screen-menu");
+  $("depositBack").onclick  = () => show("screen-menu");
+  $("balBack").onclick      = () => show("screen-menu");
+  $("changePinBack").onclick= () => show("screen-menu");
+  $("miniBack").onclick     = () => show("screen-menu");
+
+// document.getElementById("withdrawBack").onclick = goBack;
+// document.getElementById("depositBack").onclick = goBack;
+// document.getElementById("balBack").onclick = goBack;
+// document.getElementById("changePinBack").onclick = goBack;
+// document.getElementById("miniBack").onclick = goBack;
 // document.getElementById("adminBack").onclick = goBack;//==========================================
 
  
@@ -972,92 +1004,134 @@ Security:
 
 
 
-  // ================== ADMIN / UNLOCK ==================
-const adminPanelBtn = document.createElement("button");
-adminPanelBtn.textContent = "Admin Panel";
-adminPanelBtn.id = "adminPanelBtn"; // for CSS styling
-  document.body.appendChild(adminPanelBtn);
+//   // ================== ADMIN / UNLOCK ==================
+// const adminPanelBtn = document.createElement("button");
+// adminPanelBtn.textContent = "Admin Panel";
+// adminPanelBtn.id = "adminPanelBtn"; // for CSS styling
+//   document.body.appendChild(adminPanelBtn);
   
 
-  const adminAccInput = $("adminAcc");
-const adminUnlockBtn = $("adminUnlock");
-const adminBackBtn = $("adminBack");
-const adminMsg = $("adminMsg");
+//   const adminAccInput = $("adminAcc");
+// const adminUnlockBtn = $("adminUnlock");
+// const adminBackBtn = $("adminBack");
+// const adminMsg = $("adminMsg");
 
   
-let adminActive = false;
+// let adminActive = false;
 
-  //===Admin screen system
-  function openAdmin(){
-    document.getElementById("screen-admin").classList.remove("hidden");
-  }
+//   //===Admin screen system
+//   function openAdmin(){
+//     document.getElementById("screen-admin").classList.remove("hidden");
+//   }
   
-  function closeAdmin(){
-    document.getElementById("screen-admin").classList.add("hidden");
-    document.body.classList.remove("admin-active");
-  }
+//   function closeAdmin(){
+//     document.getElementById("screen-admin").classList.add("hidden");
+//     document.body.classList.remove("admin-active");
+//   }
 
-  // document.getElementById("adminBack").onclick = closeAdmin;//================================================
-
-
+//   // document.getElementById("adminBack").onclick = closeAdmin;//================================================
 
 
-  adminPanelBtn.onclick = () => {
+
+
+//   adminPanelBtn.onclick = () => {
+//     const pin = prompt("Enter Admin PIN");
+  
+//     if (pin !== ADMIN_PIN) {
+//       alert("Access Denied! Admin only.");
+//       return;
+//     }
+
+
+//     adminActive = true; 
+
+//     // 🔒 ATM LOCK
+//   document.body.classList.add("admin-active");
+
+//   show("screen-admin");               // ONLY admin opens
+//   if (adminMsg) adminMsg.textContent = "";
+//   if (adminAccInput) adminAccInput.value = "";
+// };
+
+// // Unlock account logic
+// if(adminUnlockBtn){
+//   adminUnlockBtn.onclick = () => {
+//     const acc = adminAccInput ? adminAccInput.value.trim() : "";
+//     if(!acc){
+//       if(adminMsg) adminMsg.textContent = "Enter account number!";
+//       return;
+//     }
+//     if(!accounts[acc]){
+//       if(adminMsg) adminMsg.textContent = "Account does not exist!";
+//       return;
+//     }
+
+//     accounts[acc].pinAttempts = 0;
+//     accounts[acc].isLocked = false;
+
+//     //  localStorage
+//     localStorage.setItem("lock_" + acc, JSON.stringify({pinAttempts: 0,isLocked: false }) );
+
+//     if(adminMsg) adminMsg.textContent = `Account ${acc} unlocked successfully!`;
+//     if(adminAccInput) adminAccInput.value = "";
+//   };
+// }
+
+// // Back button -> return to login screen
+//   adminBackBtn.onclick = () => {
+//     adminActive = false;                // 🔓 ATM UNLOCK
+//     document.body.classList.remove("admin-active");
+  
+//     currentAccount = null;      // 🚫 clear session
+//     if (accInput) accInput.value = "";
+//     if (pinInput) pinInput.value = "";
+  
+//     setSideButtonsEnabled(false);
+//     show("screen-acc");         // ✅ fresh start
+//   };
+
+
+
+  /*  ADMIN PANEL  */
+  const adminBtn = document.createElement("button");
+  adminBtn.id = "adminPanelBtn";
+  adminBtn.textContent = "Admin Panel";
+  document.body.appendChild(adminBtn);
+
+  adminBtn.onclick = () => {
     const pin = prompt("Enter Admin PIN");
-  
-    if (pin !== ADMIN_PIN) {
-      alert("Access Denied! Admin only.");
+    if(pin !== ADMIN_PIN){
+      alert("Access Denied");
       return;
     }
 
-
-    adminActive = true; 
-
-    // 🔒 ATM LOCK
-  document.body.classList.add("admin-active");
-
-  show("screen-admin");               // ONLY admin opens
-  if (adminMsg) adminMsg.textContent = "";
-  if (adminAccInput) adminAccInput.value = "";
-};
-
-// Unlock account logic
-if(adminUnlockBtn){
-  adminUnlockBtn.onclick = () => {
-    const acc = adminAccInput ? adminAccInput.value.trim() : "";
-    if(!acc){
-      if(adminMsg) adminMsg.textContent = "Enter account number!";
-      return;
-    }
-    if(!accounts[acc]){
-      if(adminMsg) adminMsg.textContent = "Account does not exist!";
-      return;
-    }
-
-    accounts[acc].pinAttempts = 0;
-    accounts[acc].isLocked = false;
-
-    //  localStorage
-    localStorage.setItem("lock_" + acc, JSON.stringify({pinAttempts: 0,isLocked: false }) );
-
-    if(adminMsg) adminMsg.textContent = `Account ${acc} unlocked successfully!`;
-    if(adminAccInput) adminAccInput.value = "";
+    adminActive = true;
+    document.body.classList.add("admin-active");
+    $("screen-admin").classList.remove("hidden");
   };
-}
 
-// Back button -> return to login screen
-  adminBackBtn.onclick = () => {
-    adminActive = false;                // 🔓 ATM UNLOCK
+  $("adminBack").onclick = () => {
+    adminActive = false;
     document.body.classList.remove("admin-active");
-  
-    currentAccount = null;      // 🚫 clear session
-    if (accInput) accInput.value = "";
-    if (pinInput) pinInput.value = "";
-  
-    setSideButtonsEnabled(false);
-    show("screen-acc");         // ✅ fresh start
+    $("screen-admin").classList.add("hidden");
   };
+
+  $("adminUnlock").onclick = () => {
+    const acc = $("adminAcc").value.trim();
+    if(!accounts[acc]){
+      $("adminMsg").textContent = "Account not found";
+      return;
+    }
+
+    accounts[acc].isLocked = false;
+    accounts[acc].pinAttempts = 0;
+    $("adminMsg").textContent = "Account unlocked successfully";
+  };
+
+  /*  INIT Initialization (kisi cheez ko shuru me set karna)  */
+  show("screen-acc");
   
 
 }); // DOMContentLoaded end
+
 
