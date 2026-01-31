@@ -550,6 +550,20 @@ const hoverMap = {
       })
     );
   }
+
+   // on click "ok" after seeing screen-Acc-Lock
+  const accLockMsgBtn = $("accLocked-ok");
+  if (accLockMsgBtn) {
+    accLockMsgBtn.onclick = () =>
+    {
+      currentAccount = null;
+      if($("accNumber")) $("accNumber").value = "";
+      if ($("pinInput")) $("pinInput").value = "";
+
+      if ($("accNumber")) $("accNumber").focus();
+      show("screen-acc");
+    }
+  }
   
 
   // PIN SUBMIT
@@ -566,7 +580,8 @@ const hoverMap = {
       //  checking account locked or not
       if (acc.isLocked) {
         // pinMsg.textContent ="Account locked! Contact bank admin.";
-        pinMsg.textContent = LANG[currentLang].accLocked;
+        // pinMsg.textContent = LANG[currentLang].accLocked;
+        show("screen-Acc-Lock");
         return;
       }
   
@@ -1152,6 +1167,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
