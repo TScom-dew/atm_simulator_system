@@ -375,7 +375,7 @@ $("lang-hi").onclick = () => {
 
   
 
-  /* ================= SCREEN SYSTEM ================= */
+  /*  SCREEN SYSTEM  */
   function show(screenId){
     document.querySelectorAll(".screen-inner")
       .forEach(s => s.classList.add("hidden"));
@@ -384,7 +384,7 @@ $("lang-hi").onclick = () => {
     if(el) el.classList.remove("hidden");
   }
 
-  /* ================= DATA ================= */
+  /*  DATA */
   let currentAccount = null;
   let adminActive = false;
 
@@ -392,7 +392,7 @@ $("lang-hi").onclick = () => {
     "12345678": { name:"Demo User", pin:"1234", balance:10000, pinAttempts:0, isLocked:false }
   };
 
-  /* ================= LOGIN ================= */
+  /* LOGIN = account submission  */
   $("accSubmit").onclick = () => {
     const acc = $("accNumber").value.trim();
     if(!accounts[acc]){
@@ -426,20 +426,23 @@ $("lang-hi").onclick = () => {
     }
   };
 
-  /* ================= BACK BUTTONS ================= */
+  /* BACK BUTTONS */
+  
   $("withdrawBack").onclick = () => show("screen-menu");
   $("depositBack").onclick  = () => show("screen-menu");
   $("balBack").onclick      = () => show("screen-menu");
   $("changePinBack").onclick= () => show("screen-menu");
   $("miniBack").onclick     = () => show("screen-menu");
 
-  /* ================= EXIT ================= */
+  
+  /*  EXIT BUTTON */
   $("exit").onclick = () => {
     currentAccount = null;
     show("screen-acc");
   };
+  
 
-  /* ================= ADMIN PANEL ================= */
+  /*  ADMIN PANEL  */
   const adminBtn = document.createElement("button");
   adminBtn.id = "adminPanelBtn";
   adminBtn.textContent = "Admin Panel";
@@ -475,6 +478,10 @@ $("lang-hi").onclick = () => {
     $("adminMsg").textContent = "Account unlocked successfully";
   };
 
-  /* ================= INIT ================= */
+  /*  INIT Initialization (kisi cheez ko shuru me set karna)  */
   show("screen-acc");
 });
+
+
+
+
