@@ -811,7 +811,7 @@ Security:
   if (casedepositeBtn) {
     casedepositeBtn.onclick = () => {
 
-      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   🚫 admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -822,7 +822,7 @@ Security:
       if (depositAmt) depositAmt.value = "";
       if (depositMsg) depositMsg.textContent = "";
       setTimeout(() => {
-        show("screen-deposit")
+        show("screen-deposit");
         if($("depositAmt")) $("depositAmt").focus();
       }, 100);
     };
@@ -1152,6 +1152,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
