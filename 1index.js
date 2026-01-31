@@ -578,6 +578,7 @@ const hoverMap = {
       const acc = accounts[currentAccount];
   
       //  checking account locked or not
+      consol.log("acc.isLocked", accisLoclrd);
       if (acc.isLocked) {
         // pinMsg.textContent ="Account locked! Contact bank admin.";
         // pinMsg.textContent = LANG[currentLang].accLocked;
@@ -1167,6 +1168,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
