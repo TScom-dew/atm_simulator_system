@@ -532,7 +532,8 @@ const hoverMap = {
 
       // show process then pin
       show("process-icon");
-      setTimeout(() => show("screen-pin"), 800);
+      setTimeout(() => {
+       show("screen-pin")}, 800);
     };
   }
 
@@ -1133,5 +1134,6 @@ Security:
   
 
 }); // DOMContentLoaded end
+
 
 
