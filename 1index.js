@@ -894,9 +894,11 @@ Security:
       if (newPin) newPin.value = "";
       if (confirmPin) confirmPin.value = "";
       setTimeout(() => {
-        show("screen-change-pin");
-        $("newPin").focus();
-      }, 100);
+          show("screen-change-pin");
+          const pinInput = $("newPin");
+          if (pinInput) pinInput.focus();
+        }, 200);
+
     };
   }
 
@@ -1150,6 +1152,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
