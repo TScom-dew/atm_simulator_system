@@ -402,6 +402,7 @@ $("lang-hi").onclick = () => {
     currentAccount = acc;
     show("screen-pin");
   };
+  
 
   $("pinSubmit").onclick = () => {
     const acc = accounts[currentAccount];
@@ -481,6 +482,7 @@ $("lang-hi").onclick = () => {
   /*  INIT Initialization (kisi cheez ko shuru me set karna)  */
   show("screen-acc");
 });
+
 
 
 
