@@ -811,7 +811,7 @@ Security:
   if (casedepositeBtn) {
     casedepositeBtn.onclick = () => {
 
-      if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -823,7 +823,7 @@ Security:
       if (depositMsg) depositMsg.textContent = "";
       setTimeout(() => {
         show("screen-deposit")
-        $("depositAmt").focus();
+        if($("depositAmt")) $("depositAmt").focus();
       }, 100);
     };
   }
@@ -862,7 +862,7 @@ Security:
   if (balenceBtn) {
     balenceBtn.onclick = () => {
 
-      if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -882,7 +882,7 @@ Security:
   if (changepinBtn) {
     changepinBtn.onclick = () => {
 
-      if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -896,8 +896,7 @@ Security:
       if (confirmPin) confirmPin.value = "";
       setTimeout(() => {
           show("screen-change-pin");
-          const pinInput = $("newPin");
-          if (pinInput) pinInput.focus();
+          if ($("newPin")) $("newPin").focus();
         }, 200);
 
     };
@@ -984,7 +983,7 @@ Security:
   if (exitBtn) {
     exitBtn.onclick = () => {
 
-      if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
 
       currentAccount = null;
       if (accInput) accInput.value = "";
@@ -1153,6 +1152,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
