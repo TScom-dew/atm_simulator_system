@@ -533,7 +533,9 @@ const hoverMap = {
       // show process then pin
       show("process-icon");
       setTimeout(() => {
-       show("screen-pin")}, 800);
+        show("screen-pin");
+        $("pinInput").focus();
+      }, 800);
     };
   }
 
@@ -718,7 +720,11 @@ function goBack(){
       if (availBalW) availBalW.textContent = accounts[currentAccount].balance;
       if (withdrawMsg) withdrawMsg.textContent = "";
       if (withdrawAmt) withdrawAmt.value = "";
-      setTimeout(() => show("screen-withdraw"), 100);
+      setTimeout(() => {
+        show("screen-withdraw");
+        $("withdrawAmt").focus();
+       }, 100);
+     }
     };
 
   }
@@ -814,7 +820,10 @@ Security:
 
       if (depositAmt) depositAmt.value = "";
       if (depositMsg) depositMsg.textContent = "";
-      setTimeout(() => show("screen-deposit"), 100);
+      setTimeout(() => {
+        show("screen-deposit")
+        $("depositAmt").focus();
+      }, 100);
     };
   }
 
@@ -884,7 +893,10 @@ Security:
       if (changePinMsg) changePinMsg.textContent = "";
       if (newPin) newPin.value = "";
       if (confirmPin) confirmPin.value = "";
-      setTimeout(() => show("screen-change-pin"), 100);
+      setTimeout(() => {
+        show("screen-change-pin");
+        $("newPin").focus();
+        , 100);
     };
   }
 
@@ -1003,94 +1015,95 @@ Security:
     };
   }
 
+/*
 
-
-//   // ================== ADMIN / UNLOCK ==================
-// const adminPanelBtn = document.createElement("button");
-// adminPanelBtn.textContent = "Admin Panel";
-// adminPanelBtn.id = "adminPanelBtn"; // for CSS styling
-//   document.body.appendChild(adminPanelBtn);
+  // ================== ADMIN / UNLOCK ==================
+const adminPanelBtn = document.createElement("button");
+adminPanelBtn.textContent = "Admin Panel";
+adminPanelBtn.id = "adminPanelBtn"; // for CSS styling
+  document.body.appendChild(adminPanelBtn);
   
 
-//   const adminAccInput = $("adminAcc");
-// const adminUnlockBtn = $("adminUnlock");
-// const adminBackBtn = $("adminBack");
-// const adminMsg = $("adminMsg");
+  const adminAccInput = $("adminAcc");
+const adminUnlockBtn = $("adminUnlock");
+const adminBackBtn = $("adminBack");
+const adminMsg = $("adminMsg");
 
   
-// let adminActive = false;
+let adminActive = false;
 
-//   //===Admin screen system
-//   function openAdmin(){
-//     document.getElementById("screen-admin").classList.remove("hidden");
-//   }
+  //===Admin screen system
+  function openAdmin(){
+    document.getElementById("screen-admin").classList.remove("hidden");
+  }
   
-//   function closeAdmin(){
-//     document.getElementById("screen-admin").classList.add("hidden");
-//     document.body.classList.remove("admin-active");
-//   }
+  function closeAdmin(){
+    document.getElementById("screen-admin").classList.add("hidden");
+    document.body.classList.remove("admin-active");
+  }
 
-//   // document.getElementById("adminBack").onclick = closeAdmin;//================================================
-
-
+  // document.getElementById("adminBack").onclick = closeAdmin;//================================================
 
 
-//   adminPanelBtn.onclick = () => {
-//     const pin = prompt("Enter Admin PIN");
+
+
+  adminPanelBtn.onclick = () => {
+    const pin = prompt("Enter Admin PIN");
   
-//     if (pin !== ADMIN_PIN) {
-//       alert("Access Denied! Admin only.");
-//       return;
-//     }
+    if (pin !== ADMIN_PIN) {
+      alert("Access Denied! Admin only.");
+      return;
+    }
 
 
-//     adminActive = true; 
+    adminActive = true; 
 
-//     // 🔒 ATM LOCK
-//   document.body.classList.add("admin-active");
+    // 🔒 ATM LOCK
+  document.body.classList.add("admin-active");
 
-//   show("screen-admin");               // ONLY admin opens
-//   if (adminMsg) adminMsg.textContent = "";
-//   if (adminAccInput) adminAccInput.value = "";
-// };
+  show("screen-admin");               // ONLY admin opens
+  if (adminMsg) adminMsg.textContent = "";
+  if (adminAccInput) adminAccInput.value = "";
+};
 
-// // Unlock account logic
-// if(adminUnlockBtn){
-//   adminUnlockBtn.onclick = () => {
-//     const acc = adminAccInput ? adminAccInput.value.trim() : "";
-//     if(!acc){
-//       if(adminMsg) adminMsg.textContent = "Enter account number!";
-//       return;
-//     }
-//     if(!accounts[acc]){
-//       if(adminMsg) adminMsg.textContent = "Account does not exist!";
-//       return;
-//     }
+// Unlock account logic
+if(adminUnlockBtn){
+  adminUnlockBtn.onclick = () => {
+    const acc = adminAccInput ? adminAccInput.value.trim() : "";
+    if(!acc){
+      if(adminMsg) adminMsg.textContent = "Enter account number!";
+      return;
+    }
+    if(!accounts[acc]){
+      if(adminMsg) adminMsg.textContent = "Account does not exist!";
+      return;
+    }
 
-//     accounts[acc].pinAttempts = 0;
-//     accounts[acc].isLocked = false;
+    accounts[acc].pinAttempts = 0;
+    accounts[acc].isLocked = false;
 
-//     //  localStorage
-//     localStorage.setItem("lock_" + acc, JSON.stringify({pinAttempts: 0,isLocked: false }) );
+    //  localStorage
+    localStorage.setItem("lock_" + acc, JSON.stringify({pinAttempts: 0,isLocked: false }) );
 
-//     if(adminMsg) adminMsg.textContent = `Account ${acc} unlocked successfully!`;
-//     if(adminAccInput) adminAccInput.value = "";
-//   };
-// }
+    if(adminMsg) adminMsg.textContent = `Account ${acc} unlocked successfully!`;
+    if(adminAccInput) adminAccInput.value = "";
+  };
+}
 
-// // Back button -> return to login screen
-//   adminBackBtn.onclick = () => {
-//     adminActive = false;                // 🔓 ATM UNLOCK
-//     document.body.classList.remove("admin-active");
+// Back button -> return to login screen
+  adminBackBtn.onclick = () => {
+    adminActive = false;                // 🔓 ATM UNLOCK
+    document.body.classList.remove("admin-active");
   
-//     currentAccount = null;      // 🚫 clear session
-//     if (accInput) accInput.value = "";
-//     if (pinInput) pinInput.value = "";
+    currentAccount = null;      // 🚫 clear session
+    if (accInput) accInput.value = "";
+    if (pinInput) pinInput.value = "";
   
-//     setSideButtonsEnabled(false);
-//     show("screen-acc");         // ✅ fresh start
-//   };
+    setSideButtonsEnabled(false);
+    show("screen-acc");         // ✅ fresh start
+  };
 
+*/
 
 
   /*  ADMIN PANEL  */
@@ -1101,16 +1114,19 @@ Security:
 
   adminBtn.onclick = () => {
     const pin = prompt("Enter Admin PIN");
+    // when pin wrong
     if(pin !== ADMIN_PIN){
       alert("Access Denied");
       return;
     }
-
+    // if when pin is corrrect screen admin will be opened
     adminActive = true;
     document.body.classList.add("admin-active");
     $("screen-admin").classList.remove("hidden");
+    $("adminAcc").focus();
   };
-
+  
+      // for adminBack button
   $("adminBack").onclick = () => {
     adminActive = false;
     document.body.classList.remove("admin-active");
@@ -1134,6 +1150,7 @@ Security:
   
 
 }); // DOMContentLoaded end
+
 
 
 
