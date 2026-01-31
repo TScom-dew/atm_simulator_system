@@ -15,26 +15,26 @@ document.addEventListener("DOMContentLoaded", () => {
       headerTitle: "ATM Simulator System",
       headerDesc: "ATM Simulator System is a mini project developed using HTML, CSS and JavaScript. It simulates real ATM operations in a simple and interactive way.",
       // nav
-      featureWithdraw: "Cash Withdrawal",
-      featureWithdrawDesc: "Withdraw available cash from account",
+      featureWithdraw: "Cash Withdrawal–",
+      featureWithdrawDesc: "– Withdraw available cash from account",
       
       featureBalance: "Check Balance",
-      featureBalanceDesc: "View current account balance",
+      featureBalanceDesc: "–View current account balance",
 
       featureChangePin: "Change PIN",
-      featureChangePinDesc: "Securely change ATM PIN",
+      featureChangePinDesc: "– Securely change ATM PIN",
 
       featureDeposit: "Cash Deposit",
-      featureDepositDesc: "Deposit cash into account",
+      featureDepositDesc: "– Deposit cash into account",
 
       featureMiniStmt: "Mini Statement",
-      featureMiniStmtDesc: "View recent transaction history",
+      featureMiniStmtDesc: "– View recent transaction history",
 
       featureExit: "Exit",
-      featureExitDesc: "Safely exit the ATM system",
+      featureExitDesc: "– Safely exit the ATM system",
 
       featureNoCash: "No Cash",
-      featureNoCashDesc: "Displays message when cash withdraw",
+      featureNoCashDesc: "– Displays message when cash withdraw",
 
 
     // General
@@ -111,25 +111,25 @@ document.addEventListener("DOMContentLoaded", () => {
     
       // nav
       featureWithdraw: "नकद निकासी",
-      featureWithdrawDesc: "खाते से नकद निकालें",
+      featureWithdrawDesc: "– खाते से नकद निकालें",
       
       featureBalance: "बैलेंस देखें",
-      featureBalanceDesc: "वर्तमान खाता बैलेंस देखें",
+      featureBalanceDesc: "– वर्तमान खाता बैलेंस देखें",
 
       featureChangePin: "पिन बदलें",
-      featureChangePinDesc: "ATM पिन को सुरक्षित रूप से बदलें",
+      featureChangePinDesc: "– ATM पिन को सुरक्षित रूप से बदलें",
 
       featureDeposit: "नकद जमा",
-      featureDepositDesc: "खाते में नकद जमा करें",
+      featureDepositDesc: "– खाते में नकद जमा करें",
 
       featureMiniStmt: "मिनी स्टेटमेंट",
-      featureMiniStmtDesc: "हाल की लेन-देन की जानकारी देखें",
+      featureMiniStmtDesc: "– हाल की लेन-देन की जानकारी देखें",
 
       featureExit: "बाहर जाएँ",
-      featureExitDesc: "एटीएम सिस्टम से सुरक्षित रूप से बाहर निकलें",
+      featureExitDesc: "– एटीएम सिस्टम से सुरक्षित रूप से बाहर निकलें",
 
       featureNoCash: "कोई नकद नहीं",
-      featureNoCashDesc: "नकद निकालने पर संदेश दिखाता है",
+      featureNoCashDesc: "– नकद निकालने पर संदेश दिखाता है",
 
 
     // General
@@ -481,6 +481,7 @@ $("lang-hi").onclick = () => {
   /*  INIT Initialization (kisi cheez ko shuru me set karna)  */
   show("screen-acc");
 });
+
 
 
 
