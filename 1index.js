@@ -896,7 +896,7 @@ Security:
       setTimeout(() => {
         show("screen-change-pin");
         $("newPin").focus();
-        , 100);
+      }, 100);
     };
   }
 
@@ -1150,6 +1150,7 @@ if(adminUnlockBtn){
   
 
 }); // DOMContentLoaded end
+
 
 
 
