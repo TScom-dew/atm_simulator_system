@@ -119,7 +119,7 @@
       <div class="screen-inner hidden" id="screen-pin">
         <h2>Enter PIN</h2>
         <p class="muted">For account: <span id="accLabel"></span></p>
-        <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN" />
+        <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN"  autofocus/>
         <div class="row" style="width:100">
           <button id="pinSubmit">Submit PIN</button>
           <button id="ejectBtn" class="right">Eject</button>
@@ -139,7 +139,7 @@
       <div class="screen-inner hidden" id="screen-withdraw">
         <h2>Withdraw</h2>
         <p class="muted">Available balance: ₹<span id="availBalW"></span></p>
-        <input type="number" id="withdrawAmt" min="100" step="100" placeholder="Enter amount (min ₹100)" />
+        <input type="number" id="withdrawAmt" min="100" step="100" placeholder="Enter amount (min ₹100)" autofocus/>
         <div class="row" style="width:100">
           <button id="withdrawSubmit">Withdraw</button>
           <button id="withdrawBack" class="right">Back</button>
@@ -150,7 +150,7 @@
       <div class="screen-inner hidden" id="screen-deposit">
         <h2>Deposit</h2>
         <p class="muted">You may deposit any amount</p>
-        <input type="number" id="depositAmt" min="1" placeholder="Enter deposit amount" />
+        <input type="number" id="depositAmt" min="1" placeholder="Enter deposit amount"  autofocus/>
         <div class="row" style="width:100">
           <button id="depositSubmit">Deposit</button>
           <button id="depositBack" class="right">Back</button>
@@ -173,7 +173,7 @@
       <!-- screen-4.5 -->
       <div class="screen-inner hidden" id="screen-change-pin">
         <h2>Change PIN</h2>
-        <input type="password" id="newPin" maxlength="4" placeholder="New 4-digit PIN" />
+        <input type="password" id="newPin" maxlength="4" placeholder="New 4-digit PIN" autofocus/>
         <input type="password" id="confirmPin" maxlength="4" placeholder="Confirm PIN" />
         <div class="row" style="width:100">
           <button id="changePinSubmit">Change</button>
@@ -204,7 +204,7 @@
       <div class="screen-inner hidden" id="screen-admin">
         <h2>Admin Panel</h2>
         <p>Unlock Locked Account</p>
-        <input type="number" id="adminAcc" placeholder="Enter Account Number" maxlength="8" />
+        <input type="number" id="adminAcc" placeholder="Enter Account Number" maxlength="8" autofocus/>
         <button id="adminUnlock">Unlock Account</button>
         <button id="adminBack" class="right">Back</button>
         <p id="adminMsg" class="note"></p>
@@ -325,6 +325,7 @@
    
 </body>
 </html>
+
 
 
 
