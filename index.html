@@ -105,7 +105,7 @@
       <div class="screen-inner" id="screen-acc">
         <h2>Welcome to the ATM</h2>
         <p class="muted">Enter your account number</p>
-        <input inputmode="numeric" id="accNumber" maxlength="8" placeholder=" 12345678" aria-label="Account number" />
+        <input inputmode="numeric" id="accNumber" maxlength="8" placeholder=" 12345678" aria-label="Account number" required />
         <button id="accSubmit" type="submit">Insert Card / Submit</button>
         <p class="note">Demo accounts: <strong>12345678</strong></p>
       </div>  
@@ -119,7 +119,7 @@
       <div class="screen-inner hidden" id="screen-pin">
         <h2>Enter PIN</h2>
         <p class="muted">For account: <span id="accLabel"></span></p>
-        <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN"  autofocus/>
+        <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN"  autofocus required />
         <div class="row" style="width:100">
           <button id="pinSubmit">Submit PIN</button>
           <button id="ejectBtn" class="right">Eject</button>
@@ -332,6 +332,7 @@
    
 </body>
 </html>
+
 
 
 
