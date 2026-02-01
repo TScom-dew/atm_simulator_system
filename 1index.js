@@ -2,14 +2,15 @@
 // only admin knows
 const ADMIN_PIN = "ashlok22082006";
 
-// “Admin PIN is kept in JS for simulation. In real systems, it is server-side.”
+// Admin PIN stored in frontend for simulation purposes only.
+// In real banking systems, admin authentication is handled server-side.
 
 document.addEventListener("DOMContentLoaded", () => {
 
   // DOM helpers
   const $ = id => document.getElementById(id);
-// const $= (selector)=>document.querySelector(selector);
-  // const $$= (selector)=> document.querySelectorAll(selector);
+    // const $= (selector)=>document.querySelector(selector);
+    // const $$= (selector)=> document.querySelectorAll(selector);
 
   // Language Dictionary(js)
   // ================= LANGUAGE DICTIONARY =================
@@ -420,6 +421,7 @@ const hoverMap = {
 
   let currentAccount = null;
   let accountsLoaded = false;
+  let adminActive = false;
 
                                       // Initially disable side buttons (if present)
   function setSideButtonsEnabled(enabled) {
@@ -443,8 +445,7 @@ const hoverMap = {
     .then(data => {
       Object.assign(accounts, data);
       accountsLoaded = true;
-      // console.log("Loaded Accounts:", accounts);
-      // ====================================
+      
     })
     .catch(error => {
       console.error("Error loading JSON:", error);
@@ -452,16 +453,8 @@ const hoverMap = {
     });
 
   
-    // ATM SCREEN SYSTEM
-  // SCREEN HANDLER
-  // function show(screenId) {
-  //   document.querySelectorAll(".screen-inner")
-  //    .forEach(s => s.classList.add("hidden"));
-  //     const el = $(screenId);
-  //     if (el) el.classList.remove("hidden");
-  // }
   
-  /*comment part is changed*/
+  /*          ATM SCREEN SYSTEM      */
    function show(screenId){
     document.querySelectorAll(".screen-inner")
       .forEach(s => s.classList.add("hidden"));
@@ -535,7 +528,7 @@ const hoverMap = {
       show("process-icon");
       setTimeout(() => {
         show("screen-pin");
-        if($("pinInput"))pinInput.focus();
+        if($("pinInput")) $("pinInput").focus();
       }, 800);
     };
   }
@@ -571,17 +564,16 @@ const hoverMap = {
     pinSubmit.onclick = () => {
   
       if (!currentAccount) {
-        pinMsg.textContent = "Insert card first.";
+        if (pinMsg) pinMsg.textContent = "Insert card first.";
         return;
       }
   
       const acc = accounts[currentAccount];
   
       //  checking account locked or not
-      // consol.log("acc.isLocked", accisLoclrd);
+      
       if (acc.isLocked) {
-        // pinMsg.textContent ="Account locked! Contact bank admin.";
-        // pinMsg.textContent = LANG[currentLang].accLocked;
+      
         show("screen-Acc-Lock");
         return;
       }
@@ -591,6 +583,7 @@ const hoverMap = {
       //  correct PIN
       if (enteredPin === acc.pin) {
             acc.pinAttempts = 0; // reset
+            loadUserLimit();
             saveLockState();
             pinMsg.textContent = "";
             welcomeName.textContent =
@@ -617,16 +610,8 @@ const hoverMap = {
     };
   }
 
-  loadUserLimit();
-
-  /*  EXIT BUTTON */
-  $("exit").onclick = () => {
-    currentAccount = null;
-    show("screen-acc");
-  };
-
   
-  // LOGOUT / EJECT/exit
+  // LOGOUT / EJECT/
   const ejectBtn = $("ejectBtn");
   if (ejectBtn) {
     ejectBtn.onclick = () => {
@@ -649,26 +634,7 @@ const hoverMap = {
     };
   }
 
-  //===================================
-  let screenStack = [];
 
-function showScreen(id){
-  document.querySelectorAll(".screen-inner").forEach(s => s.classList.add("hidden"));
-
-  if(screenStack[screenStack.length-1] !== id){
-    screenStack.push(id);
-  }
-
-  document.getElementById(id).classList.remove("hidden");
-}
-
-function goBack(){
-  screenStack.pop(); // current remove
-  const prev = screenStack.pop(); // previous
-  if(prev){
-    showScreen(prev);
-  }
-}
 
   
    /* BACK BUTTONS */
@@ -679,12 +645,6 @@ function goBack(){
   $("changePinBack").onclick= () => show("screen-menu");
   $("miniBack").onclick     = () => show("screen-menu");
 
-// document.getElementById("withdrawBack").onclick = goBack;
-// document.getElementById("depositBack").onclick = goBack;
-// document.getElementById("balBack").onclick = goBack;
-// document.getElementById("changePinBack").onclick = goBack;
-// document.getElementById("miniBack").onclick = goBack;
-// document.getElementById("adminBack").onclick = goBack;//==========================================
 
  
   
@@ -705,7 +665,7 @@ function goBack(){
 }
 
   // check new day
-  // ================== CHECK NEW DAY ==================
+  
   function checkNewDay() {
     const today = new Date().toDateString();
   
@@ -724,7 +684,7 @@ function goBack(){
   if (WithdrawalBtn) {
     WithdrawalBtn.onclick = () => {
 
-      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      if (adminActive) return;   // admin mode me kuchh nahi hoga
 
       checkNewDay();  // 
 
@@ -770,13 +730,19 @@ function goBack(){
         return;
       }
 
-      // DAILY LIMIT CHECK (YAHIN ADD HOGA)
+      // DAILY LIMIT CHECK 
     if (todayWithdraw + amt > dailyLimit) {
       if (withdrawMsg)
         withdrawMsg.textContent = "Daily withdrawal limit exceeded!";
       withdrawAmt.value = "";   // clear input
       return;
       }
+
+      if (!currentAccount) {
+            alert("Please login first");
+            return;
+          }
+
 
       accounts[currentAccount].balance -= amt;
 
@@ -796,14 +762,15 @@ function goBack(){
       if (successText) successText.textContent = "Withdrawn ₹" + amt;
       todayWithdraw += amt;
 
-localStorage.setItem(
-  "todayWithdraw_" + currentAccount,
-  todayWithdraw
-);
-localStorage.setItem(
-  "lastWithdrawDate_" + currentAccount,
-  lastWithdrawDate
-);
+          localStorage.setItem(
+            "todayWithdraw_" + currentAccount,
+            todayWithdraw
+          );
+          localStorage.setItem(
+            "lastWithdrawDate_" + currentAccount,
+            lastWithdrawDate
+          );
+      
       withdrawAmt.value = ""; // clear after success
       setTimeout(() => show("screen-success"), 100);
     };
@@ -812,22 +779,22 @@ localStorage.setItem(
   const withdrawBack = $("withdrawBack");
   if (withdrawBack) withdrawBack.onclick = () => show("screen-menu");
 
-  /*
-  VIVA READY ONE-LINERS (YAAD RAKHNA 💡)
-Daily limit:
-“System tracks daily withdrawn amount and restricts excess withdrawal.”
-Next day reset:
-“Daily withdrawal resets automatically by comparing system date.”
-Security:
-“Invalid inputs are cleared to avoid user confusion.”
-*/
+            /*
+            
+          Daily limit:
+          “System tracks daily withdrawn amount and restricts excess withdrawal.”
+          Next day reset:
+          “Daily withdrawal resets automatically by comparing system date.”
+          Security:
+          “Invalid inputs are cleared to avoid user confusion.”
+          */
 
   // DEPOSIT
   const casedepositeBtn = $("casedeposite");
   if (casedepositeBtn) {
     casedepositeBtn.onclick = () => {
 
-      // if (adminActive) return;   🚫 admin mode me kuchh nahi hoga
+      if (adminActive) return;  //  admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -878,7 +845,7 @@ Security:
   if (balenceBtn) {
     balenceBtn.onclick = () => {
 
-      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      if (adminActive) return;   //  admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -898,7 +865,7 @@ Security:
   if (changepinBtn) {
     changepinBtn.onclick = () => {
 
-      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      if (adminActive) return;   // admin mode me kuchh nahi hoga
 
       if (!currentAccount) {
         alert("Please login first.");
@@ -958,6 +925,19 @@ Security:
         return;
       }
 
+      /*
+      if you store your pin in localStorage means PIN persistence not implemented for security reasons
+      localStorage.setItem(
+            "pin_" + currentAccount,
+            newPinVal
+          );
+      
+      “PIN is not stored in localStorage because client-side storage is insecure.
+      In real systems, PINs are stored in encrypted form on the server.”
+      
+      or In real systems, PIN handling is server-side
+      */
+
       accounts[currentAccount].pin = newPinVal;
       const successText = $("successText");
       if (successText) successText.textContent = "PIN changed successfully!";
@@ -968,8 +948,19 @@ Security:
   const changePinBack = $("changePinBack");
   if (changePinBack) changePinBack.onclick = () => show("screen-menu");
 
+
+  
   // ministatement or  history
+
+  
   document.getElementById("ministatement").onclick = () => {
+
+    // check account login or not
+     if (!currentAccount) {
+      alert("Please login first.");
+      return;
+    }
+    
     const list = document.getElementById("miniList");
     list.innerHTML = "";
   
@@ -999,7 +990,7 @@ Security:
   if (exitBtn) {
     exitBtn.onclick = () => {
 
-      // if (adminActive) return;   // 🚫 admin mode me kuchh nahi hoga
+      if (adminActive) return;   //  admin mode me kuchh nahi hoga
 
       currentAccount = null;
       if (accInput) accInput.value = "";
@@ -1033,141 +1024,99 @@ Security:
     };
   }
 
-/*
-
-  // ================== ADMIN / UNLOCK ==================
-const adminPanelBtn = document.createElement("button");
-adminPanelBtn.textContent = "Admin Panel";
-adminPanelBtn.id = "adminPanelBtn"; // for CSS styling
-  document.body.appendChild(adminPanelBtn);
-  
-
-  const adminAccInput = $("adminAcc");
-const adminUnlockBtn = $("adminUnlock");
-const adminBackBtn = $("adminBack");
-const adminMsg = $("adminMsg");
-
-  
-let adminActive = false;
-
-  //===Admin screen system
-  function openAdmin(){
-    document.getElementById("screen-admin").classList.remove("hidden");
-  }
-  
-  function closeAdmin(){
-    document.getElementById("screen-admin").classList.add("hidden");
-    document.body.classList.remove("admin-active");
-  }
-
-  // document.getElementById("adminBack").onclick = closeAdmin;//================================================
-
-
-
-
-  adminPanelBtn.onclick = () => {
-    const pin = prompt("Enter Admin PIN");
-  
-    if (pin !== ADMIN_PIN) {
-      alert("Access Denied! Admin only.");
-      return;
-    }
-
-
-    adminActive = true; 
-
-    // 🔒 ATM LOCK
-  document.body.classList.add("admin-active");
-
-  show("screen-admin");               // ONLY admin opens
-  if (adminMsg) adminMsg.textContent = "";
-  if (adminAccInput) adminAccInput.value = "";
-};
-
-// Unlock account logic
-if(adminUnlockBtn){
-  adminUnlockBtn.onclick = () => {
-    const acc = adminAccInput ? adminAccInput.value.trim() : "";
-    if(!acc){
-      if(adminMsg) adminMsg.textContent = "Enter account number!";
-      return;
-    }
-    if(!accounts[acc]){
-      if(adminMsg) adminMsg.textContent = "Account does not exist!";
-      return;
-    }
-
-    accounts[acc].pinAttempts = 0;
-    accounts[acc].isLocked = false;
-
-    //  localStorage
-    localStorage.setItem("lock_" + acc, JSON.stringify({pinAttempts: 0,isLocked: false }) );
-
-    if(adminMsg) adminMsg.textContent = `Account ${acc} unlocked successfully!`;
-    if(adminAccInput) adminAccInput.value = "";
-  };
-}
-
-// Back button -> return to login screen
-  adminBackBtn.onclick = () => {
-    adminActive = false;                // 🔓 ATM UNLOCK
-    document.body.classList.remove("admin-active");
-  
-    currentAccount = null;      // 🚫 clear session
-    if (accInput) accInput.value = "";
-    if (pinInput) pinInput.value = "";
-  
-    setSideButtonsEnabled(false);
-    show("screen-acc");         // ✅ fresh start
-  };
-
-*/
 
 
   /*  ADMIN PANEL  */
   const adminBtn = document.createElement("button");
   adminBtn.id = "adminPanelBtn";
   adminBtn.textContent = "Admin Panel";
+  // document.body.appendChild(adminBtn);
+  // if (!adminActive) document.body.appendChild(adminBtn);
+  if (!document.getElementById("adminPanelBtn")) {
   document.body.appendChild(adminBtn);
+ }
+
 
   adminBtn.onclick = () => {
     const pin = prompt("Enter Admin PIN");
     // when pin wrong
     if(pin !== ADMIN_PIN){
-      alert("Access Denied");
+      alert("Access Denied only for Admin");
       return;
     }
     // if when pin is corrrect screen admin will be opened
     adminActive = true;
     document.body.classList.add("admin-active");
-    $("screen-admin").classList.remove("hidden");
+    
+    const adminScreen = $("screen-admin");
+   if (adminScreen) adminScreen.classList.remove("hidden");
     $("adminAcc").focus();
   };
   
       // for adminBack button
+  if($("adminBack")){
   $("adminBack").onclick = () => {
     adminActive = false;
+    
     document.body.classList.remove("admin-active");
-    $("screen-admin").classList.add("hidden");
-  };
+    
+    const adminScreen = $("screen-admin");
+    if (adminScreen) adminScreen.classList.add("hidden");
 
-  $("adminUnlock").onclick = () => {
-    const acc = $("adminAcc").value.trim();
-    if(!accounts[acc]){
-      $("adminMsg").textContent = "Account not found";
-      return;
-    }
 
-    accounts[acc].isLocked = false;
-    accounts[acc].pinAttempts = 0;
-    $("adminMsg").textContent = "Account unlocked successfully";
-  };
+    if ($("adminMsg")) $("adminMsg").textContent = "";
+    
+     // go to fresh account screen
+      show("screen-acc");
 
-  /*  INIT Initialization (kisi cheez ko shuru me set karna)  */
+    if ($("accNumber")) $("accNumber").focus();
+    
+    };
+  }
+
+  if($("adminUnlock")){
+  
+      $("adminUnlock").onclick = () => {
+        const acc = $("adminAcc").value.trim();
+        if(!accounts[acc]){
+          $("adminMsg").textContent = "Account not found";
+          return;
+        }
+    
+        accounts[acc].isLocked = false;
+        accounts[acc].pinAttempts = 0;
+        
+        $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
+
+        
+        localStorage.setItem(
+            "lock_" + acc,
+            JSON.stringify({
+              pinAttempts: 0,
+              isLocked: false
+            })
+          );
+    
+        //clearing adminAcc input 
+        $("adminAcc").value = "";
+        
+         // resert account number
+      currentAccount = null;
+    
+      if ($("accNumber")) $("accNumber").value = "";
+      if ($("pinInput")) $("pinInput").value = "";
+    
+        
+      };
+  }
+  
+
+  /*  INIT= Initialization (kisi cheez ko shuru me set karna)  */
   show("screen-acc");
   
 
 }); // DOMContentLoaded end
+
 
 
 
