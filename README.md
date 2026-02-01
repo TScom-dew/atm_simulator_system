@@ -1,4 +1,4 @@
-<img width="1904" height="857" alt="Screenshot 2026-02-01 082150" src="https://github.com/user-attachments/assets/dfb752e8-a25c-43e8-9c98-f4e599aab412" />
+
 # 💻 ATM Simulator System
 
 A frontend mini project that simulates basic ATM operations. Built using HTML, CSS, and JavaScript to practice real-world logic, DOM manipulation, and user interaction.
