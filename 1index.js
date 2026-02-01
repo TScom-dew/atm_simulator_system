@@ -583,8 +583,8 @@ const hoverMap = {
       //  correct PIN
       if (enteredPin === acc.pin) {
             acc.pinAttempts = 0; // reset
-            loadUserLimit();
-            saveLockState();
+             loadUserLimit();   //
+              saveLockState();
             pinMsg.textContent = "";
             welcomeName.textContent =
               "Welcome, " + acc.name;
@@ -649,34 +649,42 @@ const hoverMap = {
  
   
 
-  // ================== GLOBAL VARIABLES ==================
-  let dailyLimit = 25000;
+  /*                  GLOBAL VARIABLES                   */
+      let todayWithdraw = 0;
+      let lastWithdrawDate = "";
+      const dailyLimit = 25000;
+
 
   // let todayWithdraw = Number(localStorage.getItem("todayWithdraw")) || 0;
   // let lastWithdrawDate =
   //   localStorage.getItem("lastWithdrawDate") || new Date().toDateString();
+
+      // loading user limit 
   function loadUserLimit() {
-    todayWithdraw = Number(
-      localStorage.getItem("todayWithdraw_" + currentAccount)
-    ) || 0;
-    lastWithdrawDate =
+  todayWithdraw = Number(
+    localStorage.getItem("todayWithdraw_" + currentAccount)
+  ) || 0;
+
+  lastWithdrawDate =
     localStorage.getItem("lastWithdrawDate_" + currentAccount)
     || new Date().toDateString();
 }
 
+
   // check new day
   
   function checkNewDay() {
-    const today = new Date().toDateString();
-  
-    if (today !== lastWithdrawDate) {
-      todayWithdraw = 0;
-      lastWithdrawDate = today;
-  
-      localStorage.setItem("todayWithdraw_" + currentAccount, todayWithdraw);
-      localStorage.setItem("lastWithdrawDate_" + currentAccount, lastWithdrawDate);
-    }
+  const today = new Date().toDateString();
+
+  if (today !== lastWithdrawDate) {
+    todayWithdraw = 0;
+    lastWithdrawDate = today;
+
+    localStorage.setItem( "todayWithdraw_" + currentAccount, todayWithdraw );
+    localStorage.setItem( "lastWithdrawDate_" + currentAccount, lastWithdrawDate);
   }
+}
+
   
 
   // WITHDRAW
@@ -715,11 +723,17 @@ const hoverMap = {
       }
 
       const amt = Number(withdrawAmt ? withdrawAmt.value : 0);
-
-      if (isNaN(amt) || amt < 100 ) {
+      
+        if(isNaN(amt) ){
+            withdrawMsg.textContent = "Enter valid amount.";
+            withdrawAmt.value = "";
+            return;
+        }
+      
+      if (amt < 100 ) {
         if (withdrawMsg)
           withdrawMsg.textContent = "Amount must be minimum ₹100.";
-        withdrawAmt.value = "";
+          withdrawAmt.value = "";
         return;
       }
 
@@ -1074,7 +1088,13 @@ const hoverMap = {
     };
   }
 
-  if($("adminUnlock")){
+  // adminUnlock button ke liye
+      const adminUnlockBtn = $("adminUnlock");
+
+      if (adminUnlockBtn) {
+        adminUnlockBtn.onclick = handleAdminUnlock;
+      }
+     function handleAdminUnlock(){
   
       $("adminUnlock").onclick = () => {
         const acc = $("adminAcc").value.trim();
@@ -1086,9 +1106,7 @@ const hoverMap = {
         accounts[acc].isLocked = false;
         accounts[acc].pinAttempts = 0;
         
-        $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
-
-        
+       
         localStorage.setItem(
             "lock_" + acc,
             JSON.stringify({
@@ -1096,12 +1114,16 @@ const hoverMap = {
               isLocked: false
             })
           );
+        
+         $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
+
+        
     
         //clearing adminAcc input 
         $("adminAcc").value = "";
         
          // resert account number
-      currentAccount = null;
+          currentAccount = null;
     
       if ($("accNumber")) $("accNumber").value = "";
       if ($("pinInput")) $("pinInput").value = "";
@@ -1116,6 +1138,7 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
+
 
 
 
