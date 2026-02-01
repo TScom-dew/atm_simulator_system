@@ -722,6 +722,8 @@ const hoverMap = {
         return;
       }
 
+      checkNewDay();
+      
       const amt = Number(withdrawAmt ? withdrawAmt.value : 0);
       
         if(isNaN(amt) ){
@@ -1138,18 +1140,5 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
