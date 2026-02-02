@@ -58,7 +58,7 @@
 
   <!-- SEO Basic -->
   <meta name="description" content="ATM Simulator System Project is a mini web application developed using HTML, CSS and JavaScript. This project simulates ATM banking operations such as cash withdrawal, deposit, balance enquiry, mini statement and PIN change. Ideal for students mini project.">
-  <!-- <meta name="description" content="ATM Simulator System is a mini project developed using HTML, CSS and JavaScript that simulates ATM banking operations like cash withdrawal, deposit, balance enquiry, mini statement and PIN change."> -->
+  
 
   <meta name="keywords"
   content="ATM Simulator System, ATM mini project, HTML CSS JavaScript project, banking system project">
@@ -90,7 +90,6 @@
       real banking operations such as cash withdrawal, deposit, balance enquiry,
       mini statement and PIN change.
     </p>
-    
     <section class="seo-text" style="display:none">
       ATM Simulator System Project using HTML, CSS and JavaScript for students.
       This ATM Simulator System project is useful for BCA, MCA, and computer science
@@ -220,9 +219,17 @@
 
       <!-- Admin Panel -->
       <div class="screen-inner hidden" id="screen-admin">
-        <h2>Admin Panel</h2>
+        <h2 id="screen-admin-title">Admin Panel</h2>
         <p>Unlock Locked Account</p>
-        <input type="number" id="adminAcc" placeholder="Enter Account Number" maxlength="8" autofocus/>
+        <input
+        type="text"
+        id="adminAcc"
+        maxlength="8"
+        placeholder="12345678"
+        aria-label="Admin Account Number"
+        required
+        inputmode="numeric"
+      />
         <button id="adminUnlock">Unlock Account</button>
         <button id="adminBack" class="right">Back</button>
         <p id="adminMsg" class="note"></p>
@@ -270,7 +277,29 @@
     <!-- BOTTOM -->
     <div class="bottom">
       <div class="cash-slot" id="cashSlot">No cash</div>
-      <button id="helpBtn" title="Help">!</button>
+      <button id="helpBtn" title="Help">help</button>
+      <!-- Account Modal -->
+      <div id="helpModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+      
+          <h2 id="modelTitle">Demo Account Details</h2>
+      
+          <pre id="accountData">
+      Account: 12345678 | PIN: 1234
+      Account: 87654321 | PIN: 4321
+      Account: 44441111 | PIN: 4444
+      Account: 12481632 | PIN: 1248
+          </pre>
+      
+          <button id="copyBtn">Copy</button>
+      
+          <p class="warning">
+            ⚠️This is a demo project, <br> 
+            Do not use real bank details.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -281,12 +310,11 @@
 
     <!-- Left: About -->
     <div class="footer-col about">
-      <h2>ATM Simulator System Project</h2>
+      <h2>ATM Simulator System</h2>
       <p id="footer-about-text"> 
-        ATM Simulator System Project is a mini web application developed using
-      HTML, CSS and JavaScript. This ATM Simulator System project simulates
-      real banking operations such as cash withdrawal, deposit, balance enquiry,
-      mini statement and PIN change.
+        ATM Simulator System is a mini banking project developed using
+        HTML, CSS and JavaScript. It simulates real ATM operations such as
+        cash withdrawal, deposit, balance enquiry, mini statement and PIN change.
       </p>
       <p class="copyright"  id="footer-copy">
         © 2026 Ashlok Kumar. All rights reserved.
@@ -339,26 +367,11 @@
   
 </footer>
 
-<!-- <script src="index.js"></script> -->
-<script src="1index.js"></script>
+<script src="index.js"></script>
+<!-- <script src="1index.js"></script> -->
    
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
