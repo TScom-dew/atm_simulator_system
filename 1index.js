@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     en: {
         // header
       headerTitle: "ATM Simulator System Project",
-      headerDesc: "ATM Simulator System Project is a mini web application developed using
-      HTML, CSS and JavaScript. This ATM Simulator System project simulates
-      real banking operations such as cash withdrawal, deposit, balance enquiry,
-      mini statement and PIN change.",
+      headerDesc: "ATM Simulator System Project is a mini web application developed using HTML, CSS and JavaScript. This ATM Simulator System project simulates real banking operations such as cash withdrawal, deposit, balance enquiry, mini statement and PIN change.",
       // nav
       featureWithdraw: "Cash Withdrawal",
       featureWithdrawDesc: "– Withdraw available cash from account",
@@ -2307,6 +2304,7 @@ const hoverMap = {
   
 
 // }); // DOMContentLoaded end
+
 
 
 
