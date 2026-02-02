@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     en: {
         // header
       headerTitle: "ATM Simulator System Project",
-      headerDesc: "ATM Simulator System Project is a mini web application developed using HTML, CSS and JavaScript. This ATM Simulator System project simulates real banking operations such as cash withdrawal, deposit, balance enquiry, mini statement and PIN change.",
+      headerDesc: `ATM Simulator System Project is a mini web application developed using HTML, CSS and JavaScript.         This ATM Simulator System project simulates real banking operations such as cash withdrawal, deposit, balance         enquiry, mini statement and PIN change.`,
       // nav
       featureWithdraw: "Cash Withdrawal",
       featureWithdrawDesc: "– Withdraw available cash from account",
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
       accLocked: "Account is locked. Contact bank staff.",
     
       //footer
-      footerAboutTitle: "ATM Simulator System",
-      footerAboutText: "ATM Simulator System is a mini banking project developed using HTML, CSS and JavaScript. It simulates real ATM operations such as cash withdrawal, deposit, balance enquiry, mini statement and PIN change.",
+      footerAboutTitle: "ATM Simulator System Project",
+      footerAboutText: `ATM Simulator System Project is a mini web application developed using HTML, CSS and                                 JavaScript. This ATM Simulator System project simulates real banking operations such as cash                         withdrawal, deposit, balance enquiry, mini statement and PIN change.`,
       footerCopyright: "© 2026 Ashlok Kumar. All rights reserved.",
     
       footerProjectsTitle: "Projects",
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hi: {
     // header
       headerTitle:"एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
-      headerDesc: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट एक मिनी वेब एप्लिकेशन है, जिसे HTML, CSS और JavaScript का उपयोग करके विकसित किया गया है। यह प्रोजेक्ट वास्तविक बैंकिंग प्रक्रियाओं जैसे नकद निकासी, जमा, बैलेंस पूछताछ, मिनी स्टेटमेंट और पिन बदलने जैसी सुविधाओं का सिमुलेशन करता है।",
+      headerDesc: `एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट एक मिनी वेब एप्लिकेशन है, जिसे HTML, CSS और JavaScript का उपयोग करके विकसित                     किया गया है। यह प्रोजेक्ट वास्तविक बैंकिंग प्रक्रियाओं जैसे नकद निकासी, जमा, बैलेंस पूछताछ, मिनी स्टेटमेंट और पिन                         बदलने जैसी सुविधाओं का सिमुलेशन करता है।`,
     
       // nav
       featureWithdraw: "नकद निकासी",
@@ -189,8 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //footer
 
-      footerAboutTitle: "एटीएम सिमुलेटर सिस्टम",
-      footerAboutText: "एटीएम सिमुलेटर सिस्टम एक लघु बैंकिंग प्रोजेक्ट है जिसे HTML, CSS और JavaScript का उपयोग करके विकसित किया गया है। यह नकद निकासी, जमा, बैलेंस जाँच, मिनी स्टेटमेंट और PIN परिवर्तन जैसी वास्तविक एटीएम प्रक्रियाओं का अनुकरण करता है।",
+      footerAboutTitle: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
+      footerAboutText: "एटीएम सिमुलेटर सिस्टम एक लघु बैंकिंग प्रोजेक्ट है जिसे HTML, CSS और JavaScript का उपयोग करके विकसित                             किया गया है। यह नकद निकासी, जमा, बैलेंस जाँच, मिनी स्टेटमेंट और PIN परिवर्तन जैसी वास्तविक एटीएम प्रक्रियाओं                         का अनुकरण करता है।",
       footerCopyright: "© 2026 अशलोक कुमार। सर्वाधिकार सुरक्षित।",
     
       footerProjectsTitle: "प्रोजेक्ट्स",
