@@ -1,6 +1,5 @@
 
 
-
 // only admin knows
 const ADMIN_PIN = "ashlok22082006";
 
@@ -19,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const LANG = {
     en: {
         // header
-      headerTitle: "ATM Simulator System",
-      headerDesc: "ATM Simulator System is a mini project developed using HTML, CSS and JavaScript. It simulates real ATM operations in a simple and interactive way.",
+      headerTitle: "ATM Simulator System Project",
+      headerDesc: "ATM Simulator System Project is a mini web application developed using
+      HTML, CSS and JavaScript. This ATM Simulator System project simulates
+      real banking operations such as cash withdrawal, deposit, balance enquiry,
+      mini statement and PIN change.",
       // nav
       featureWithdraw: "Cash Withdrawal",
       featureWithdrawDesc: "– Withdraw available cash from account",
@@ -112,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     hi: {
     // header
-      headerTitle: "एटीएम सिमुलेटर सिस्टम",
-      headerDesc: "एटीएम सिमुलेटर सिस्टम HTML, CSS और JavaScript का उपयोग करके विकसित किया गया एक मिनी प्रोजेक्ट है। यह वास्तविक एटीएम ऑपरेशन को सरल और इंटरैक्टिव तरीके से प्रदर्शित करता है।",
+      headerTitle:"एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
+      headerDesc: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट एक मिनी वेब एप्लिकेशन है, जिसे HTML, CSS और JavaScript का उपयोग करके विकसित किया गया है। यह प्रोजेक्ट वास्तविक बैंकिंग प्रक्रियाओं जैसे नकद निकासी, जमा, बैलेंस पूछताछ, मिनी स्टेटमेंट और पिन बदलने जैसी सुविधाओं का सिमुलेशन करता है।",
     
       // nav
       featureWithdraw: "नकद निकासी",
@@ -1142,4 +1144,5 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
+
 
