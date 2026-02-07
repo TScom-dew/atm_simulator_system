@@ -1058,7 +1058,9 @@ const hoverMap = {
 
 
   adminBtn.onclick = () => {
-    const pin = prompt("Enter Admin PIN");
+   setTimeout(()=>{
+
+       const pin = prompt("Enter Admin PIN");
     // when pin wrong
     if(pin !== ADMIN_PIN){
       alert("Access Denied only for Admin");
@@ -1071,6 +1073,8 @@ const hoverMap = {
     const adminScreen = $("screen-admin");
    if (adminScreen) adminScreen.classList.remove("hidden");
     $("adminAcc").focus();
+     
+   }, 0);
   };
   
       // for adminBack button
@@ -1144,6 +1148,7 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
+
 
 
 
