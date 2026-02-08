@@ -502,7 +502,8 @@ const hoverMap = {
         alert("Accounts are still loading. Please wait a moment and try again.");
         return;
       }
-      const acc = accInput ? accInput.value.trim() : "";
+      // const acc = accInput ? accInput.value.trim() : "";
+      const acc = accInput.value.trim();
       if (acc === "") {
         // alert("Enter account number!");
         if (pinMsg) pinMsg.textContent = "Enter account number!";
@@ -1148,6 +1149,7 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
+
 
 
 
