@@ -1,5 +1,6 @@
 
 
+
 // only admin knows
 const ADMIN_PIN = "ashlok22082006";
 
@@ -10,19 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // DOM helpers
   const $ = id => document.getElementById(id);
-    // const $= (selector)=>document.querySelector(selector);
-    // const $$= (selector)=> document.querySelectorAll(selector);
+  // const $= (selector)=>document.querySelector(selector);
+  const $$ = (selector) => document.querySelectorAll(selector);
 
   // Language Dictionary(js)
   // ================= LANGUAGE DICTIONARY =================
   const LANG = {
     en: {
-        // header
+      // header
       headerTitle: "ATM Simulator System Project",
-      headerDesc: `ATM Simulator System Project is a mini web application developed using
-      HTML, CSS and JavaScript. This ATM Simulator System project simulates
-      real banking operations such as cash withdrawal, deposit, balance enquiry,
-      mini statement and PIN change.`,
+      headerDesc: `ATM Simulator System Project is a mini web application developed using HTML, CSS and JavaScript.         This ATM Simulator System project simulates real banking operations such as cash withdrawal, deposit, balance         enquiry, mini statement and PIN change.`,
       // nav
       featureWithdraw: "Cash Withdrawal",
       featureWithdrawDesc: "– Withdraw available cash from account",
@@ -46,57 +44,77 @@ document.addEventListener("DOMContentLoaded", () => {
       featureNoCashDesc: "– Displays message when cash withdraw",
 
 
-    // General
-    welcomeATM: "Welcome to the ATM",
-    enterAcc: "Enter your account number",
-    insertCard: "Insert Card / Submit",
-    chooseAction: "Choose your action",
-    back: "Back",
-    ok: "OK",
-    exit: "Exit",
+      // General
+      welcomeATM: "Welcome to the ATM",
+      enterAcc: "Enter your account number",
+      insertCard: "Insert Card / Submit",
+      chooseAction: "Choose your action",
+      back: "Back",
+      ok: "OK",
+      exit: "Exit",
 
-    // PIN
-    enterPin: "Enter PIN",
-    submitPin: "Submit PIN",
-    eject: "Eject",
+      // PIN
+      enterPin: "Enter PIN",
+      submitPin: "Submit PIN",
+      eject: "Eject",
 
-    // Menu buttons
-    withdraw: "Cash Withdrawal",
-    balance: "Check Balance",
-    deposit: "Cash Deposit",
-    changePin: "Change PIN",
-    miniStmt: "Mini Statement",
+      // Menu buttons
+      withdraw: "Cash Withdrawal",
+      balance: "Check Balance",
+      deposit: "Cash Deposit",
+      changePin: "Change PIN",
+      miniStmt: "Mini Statement",
 
-    // Withdraw
-    withdrawTitle: "Withdraw",
-    availBalance: "Available balance",
-    withdrawBtn: "Withdraw",
-    minWithdraw: "Amount must be minimum ₹100",
+      // Withdraw
+      withdrawTitle: "Withdraw",
+      availBalance: "Available balance",
+      withdrawBtn: "Withdraw",
+      minWithdraw: "Amount must be minimum ₹100",
 
-    // Deposit
-    depositTitle: "Deposit",
-    depositBtn: "Deposit",
+      // Deposit
+      depositTitle: "Deposit",
+      depositBtn: "Deposit",
 
-    // Balance
-    balanceTitle: "Balance",
+      // Balance
+      balanceTitle: "Balance",
 
-    // Success
-    txnSuccess: "Transaction Success",
-    collectCash: "Collect your cash",
+      // Success
+      txnSuccess: "Transaction Success",
+      collectCash: "Collect your cash",
 
-    // Admin
-    adminPanel: "Admin Panel",
-    unlockAcc: "Unlock Locked Account",
-    unlockBtn: "Unlock Account",
+      // Admin
+      adminPanel: "Admin Panel",
+      unlockAcc: "Unlock Locked Account",
+      unlockBtn: "Unlock Account",
 
-    // Errors
-    loginFirst: "Please login first",
-    wrongPin: "Wrong PIN",
+      // Errors
+      loginFirst: "Please login first",
+      wrongPin: "Wrong PIN",
       accLocked: "Account is locked. Contact bank staff.",
-    
+
+      // faq section
+      faqsectiontitle: "Frequently Asked Questions (FAQ)",
+
+      question1: "What is ATM Simulation System?",
+      answer1: "ATM Simulation System is a virtual ATM simulator project that demonstrates how a real ATM machine works including PIN verification, balance check, cash withdrawal, and transaction history.",
+
+      question2: "Is this ATM simulator available online?",
+      answer2: "Yes, this ATM simulator online project can be accessed directly through a web browser. It is built using HTML, CSS, and JavaScript.",
+
+      question3: "How does ATM machine simulation work?",
+      answer3: "The ATM machine simulation works by validating a user PIN, allowing withdrawal or balance checking, and updating the account balance dynamically using JavaScript logic.",
+
+      question4: "Is this project suitable for BCA or B.Tech students?",
+      answer4: "Yes, this ATM simulation system project is ideal for BCA, B.Tech, and diploma students for academic submissions and portfolio projects.",
+
+      question5: "What technologies are used in this ATM simulator project?",
+      answer5: "This project is developed using HTML for structure, CSS for styling, and JavaScript for functionality and logic handling.",
+
+
+
       //footer
-      footerAboutTitle: "ATM Simulator System",
-      footerAboutText: "ATM Simulator System is a mini banking project developed using HTML, CSS and JavaScript. It simulates real ATM operations such as cash withdrawal, deposit, balance enquiry, mini statement and PIN change.",
+      footerAboutTitle: "ATM Simulator System Project",
+      footerAboutText: `ATM Simulator System Project is a mini web application developed using HTML, CSS and                                 JavaScript. This ATM Simulator System project simulates real banking operations such as cash                         withdrawal, deposit, balance enquiry, mini statement and PIN change.`,
       footerCopyright: "© 2026 Ashlok Kumar. All rights reserved.",
     
       footerProjectsTitle: "Projects",
@@ -105,17 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
       footerProject3: "My Portfolio - Ashlok Kumar",
       footerProject4: "Currency Convertor",
     
-      footerSocialTitle: "Connect with Me",
+      footerConnect: "Connect with Me",
       footerSocial1: "LinkedIn",
       footerSocial2: "GitHub",
       footerSocial3: "Twitter / X",
       footerSocial4: "Email"
-  },
+    },
 
     hi: {
-    // header
-      headerTitle:"एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
-      headerDesc: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट एक मिनी वेब एप्लिकेशन है, जिसे HTML, CSS और JavaScript का उपयोग करके विकसित किया गया है। यह प्रोजेक्ट वास्तविक बैंकिंग प्रक्रियाओं जैसे नकद निकासी, जमा, बैलेंस पूछताछ, मिनी स्टेटमेंट और पिन बदलने जैसी सुविधाओं का सिमुलेशन करता है।",
+      // header
+      headerTitle: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
+      headerDesc: `एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट एक मिनी वेब एप्लिकेशन है, जिसे HTML, CSS और JavaScript का उपयोग करके विकसित                     किया गया है। यह प्रोजेक्ट वास्तविक बैंकिंग प्रक्रियाओं जैसे नकद निकासी, जमा, बैलेंस पूछताछ, मिनी स्टेटमेंट और पिन                         बदलने जैसी सुविधाओं का सिमुलेशन करता है।`,
     
       // nav
       featureWithdraw: "नकद निकासी",
@@ -140,59 +158,77 @@ document.addEventListener("DOMContentLoaded", () => {
       featureNoCashDesc: "– नकद निकालने पर संदेश दिखाता है",
 
 
-    // General
-    welcomeATM: "एटीएम में आपका स्वागत है",
-    enterAcc: "अपना खाता नंबर दर्ज करें",
-    insertCard: "कार्ड डालें / सबमिट",
-    chooseAction: "अपना विकल्प चुनें",
-    back: "वापस",
-    ok: "ठीक है",
-    exit: "बाहर जाएँ",
+      // General
+      welcomeATM: "एटीएम में आपका स्वागत है",
+      enterAcc: "अपना खाता नंबर दर्ज करें",
+      insertCard: "कार्ड डालें / सबमिट",
+      chooseAction: "अपना विकल्प चुनें",
+      back: "वापस",
+      ok: "ठीक है",
+      exit: "बाहर जाएँ",
 
-    // PIN
-    enterPin: "पिन दर्ज करें",
-    submitPin: "पिन सबमिट करें",
-    eject: "कार्ड निकालें",
+      // PIN
+      enterPin: "पिन दर्ज करें",
+      submitPin: "पिन सबमिट करें",
+      eject: "कार्ड निकालें",
 
-    // Menu buttons
-    withdraw: "नकद निकासी",
-    balance: "बैलेंस देखें",
-    deposit: "नकद जमा",
-    changePin: "पिन बदलें",
-    miniStmt: "मिनी स्टेटमेंट",
+      // Menu buttons
+      withdraw: "नकद निकासी",
+      balance: "बैलेंस देखें",
+      deposit: "नकद जमा",
+      changePin: "पिन बदलें",
+      miniStmt: "मिनी स्टेटमेंट",
 
-    // Withdraw
-    withdrawTitle: "नकद निकासी",
-    availBalance: "उपलब्ध बैलेंस",
-    withdrawBtn: "निकालें",
-    minWithdraw: "न्यूनतम राशि ₹100 है",
+      // Withdraw
+      withdrawTitle: "नकद निकासी",
+      availBalance: "उपलब्ध बैलेंस",
+      withdrawBtn: "निकालें",
+      minWithdraw: "न्यूनतम राशि ₹100 है",
 
-    // Deposit
-    depositTitle: "जमा करें",
-    depositBtn: "जमा करें",
+      // Deposit
+      depositTitle: "जमा करें",
+      depositBtn: "जमा करें",
 
-    // Balance
-    balanceTitle: "बैलेंस",
+      // Balance
+      balanceTitle: "बैलेंस",
 
-    // Success
-    txnSuccess: "लेन-देन सफल",
-    collectCash: "कृपया नकद लें",
+      // Success
+      txnSuccess: "लेन-देन सफल",
+      collectCash: "कृपया नकद लें",
 
-    // Admin
-    adminPanel: "एडमिन पैनल",
-    unlockAcc: "लॉक खाता अनलॉक करें",
-    unlockBtn: "खाता अनलॉक करें",
+      // Admin
+      adminPanel: "एडमिन पैनल",
+      unlockAcc: "लॉक खाता अनलॉक करें",
+      unlockBtn: "खाता अनलॉक करें",
 
-    // Errors
-    loginFirst: "पहले लॉगिन करें",
-    wrongPin: "गलत पिन",
+      // Errors
+      loginFirst: "पहले लॉगिन करें",
+      wrongPin: "गलत पिन",
       accLocked: "खाता लॉक है, बैंक स्टाफ से संपर्क करें",
-    
+      
+
+      //faq
+      faqsectiontitle: "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+
+      question1: "एटीएम सिमुलेशन सिस्टम क्या है?",
+      answer1: "एटीएम सिमुलेशन सिस्टम एक वर्चुअल एटीएम प्रोजेक्ट है जो वास्तविक एटीएम मशीन के कार्य को दर्शाता है।",
+
+      question2: "क्या यह एटीएम सिमुलेटर ऑनलाइन उपलब्ध है?",
+      answer2: "हाँ, यह एटीएम सिमुलेटर वेब ब्राउज़र के माध्यम से उपयोग किया जा सकता है।",
+
+      question3: "एटीएम मशीन सिमुलेशन कैसे काम करता है?",
+      answer3: "यह उपयोगकर्ता के पिन को सत्यापित करता है और बैलेंस व निकासी की सुविधा देता है।",
+
+      question4: "क्या यह प्रोजेक्ट BCA या B.Tech छात्रों के लिए उपयुक्त है?",
+      answer4: "हाँ, यह प्रोजेक्ट BCA, B.Tech और डिप्लोमा छात्रों के लिए उपयुक्त है।",
+
+      question5: "इस प्रोजेक्ट में कौन-सी तकनीकों का उपयोग किया गया है?",
+      answer5: "यह प्रोजेक्ट HTML, CSS और JavaScript का उपयोग करके बनाया गया है।",
 
       //footer
 
-      footerAboutTitle: "एटीएम सिमुलेटर सिस्टम",
-      footerAboutText: "एटीएम सिमुलेटर सिस्टम एक लघु बैंकिंग प्रोजेक्ट है जिसे HTML, CSS और JavaScript का उपयोग करके विकसित किया गया है। यह नकद निकासी, जमा, बैलेंस जाँच, मिनी स्टेटमेंट और PIN परिवर्तन जैसी वास्तविक एटीएम प्रक्रियाओं का अनुकरण करता है।",
+      footerAboutTitle: "एटीएम सिम्युलेटर सिस्टम प्रोजेक्ट",
+      footerAboutText: "एटीएम सिमुलेटर सिस्टम एक लघु बैंकिंग प्रोजेक्ट है जिसे HTML, CSS और JavaScript का उपयोग करके विकसित                             किया गया है। यह नकद निकासी, जमा, बैलेंस जाँच, मिनी स्टेटमेंट और PIN परिवर्तन जैसी वास्तविक एटीएम प्रक्रियाओं                         का अनुकरण करता है।",
       footerCopyright: "© 2026 अशलोक कुमार। सर्वाधिकार सुरक्षित।",
     
       footerProjectsTitle: "प्रोजेक्ट्स",
@@ -201,27 +237,28 @@ document.addEventListener("DOMContentLoaded", () => {
       footerProject3: "मेरा पोर्टफोलियो - अशलोक कुमार",
       footerProject4: "मुद्रा परिवर्तक",
     
-      footerSocialTitle: "मुझसे जुड़ें",
-      footerSocial1: "LinkedIn",
-      footerSocial2: "GitHub",
-      footerSocial3: "Twitter / X",
+      footerConnect: "मुझसे जुड़ें",
+      footerSocial1: "लिंक्डइन",
+      footerSocial2: "गिटहब",
+      footerSocial3: "ट्विटर / एक्स",
       footerSocial4: "ईमेल"
     
-  }
+    }
   };
   
 
   // Add JS function to apply features
-function applyFeaturesLanguage() {
-  document.querySelectorAll(".atm-features li").forEach(li => {
-    const key = li.dataset.key;
-    if (!key) return;
+  function applyFeaturesLanguage() {
+    document.querySelectorAll(".atm-features li").forEach(li => {
+      const key = li.dataset.key;
+      if (!key) return;
 
-    li.querySelector("strong").textContent = LANG[currentLang][key];
-    li.querySelector("span").textContent = LANG[currentLang][key + "Desc"];
-  });
+      li.querySelector("strong").textContent = LANG[currentLang][key];
+      li.querySelector("span").textContent = LANG[currentLang][key + "Desc"];
+    });
   }
   
+
   // JS function to update footer dynamically
   function applyFooterLanguage() {
     const T = LANG[currentLang];
@@ -232,9 +269,6 @@ function applyFeaturesLanguage() {
     const copyright = document.getElementById("footer-copy");
     if (copyright) copyright.textContent = T.footerCopyright;
 
-
-    
-  
     // Projects
     const projectLis = document.querySelectorAll(".footer-col:nth-child(2) ul li a");
     if (projectLis.length >= 4) {
@@ -253,127 +287,161 @@ function applyFeaturesLanguage() {
       socialLis[3].textContent = T.footerSocial4;
     }
   
-    // Language / Appearance headings (optional)
+    // Language / Appearance headings 
     document.querySelector(".mode h3").textContent = currentLang === "en" ? "Appearance" : "अभिव्यक्ती";
     document.querySelector(".lang-box h3").textContent = currentLang === "en" ? "Language" : "भाषा";
+
+    //project/ social title
+    document.querySelector("#projects").textContent = currentLang === "en" ? "projects" : "प्रोजेक्ट्स";
+    document.querySelector("#socialLink").textContent = currentLang === "en" ? "Connect with Me" : "मुझसे जुड़ें";
+ 
   }
   
 
-let currentLang = localStorage.getItem("lang") || "en";
+  let currentLang = localStorage.getItem("lang") || "en";
 
-// APPLY LANGUAGE FUNCTION
+  // APPLY LANGUAGE FUNCTION
 
-function applyLanguage() {
-  const T = LANG[currentLang];
+  function applyLanguage() {
+    const T = LANG[currentLang];
 
-  // FIRST PAGE
-  setText("header-title", null, T.headerTitle);
-  setText("header-desc", null, T.headerDesc);
+    // FIRST PAGE
+    setText("header-title", null, T.headerTitle);
+    setText("header-desc", null, T.headerDesc);
 
-  // FOOTER
-  setText("footer-copy", null, T.footerCopyright);
+    // FOOTER
+    setText("footer-copy", null, T.footerCopyright);
 
 
-  localStorage.setItem("lang", currentLang);
+    localStorage.setItem("lang", currentLang);
 
-  // Screen titles
-  setText("screen-acc", "h2", T.welcomeATM);
-  setText("screen-acc", ".muted", T.enterAcc);
-  setBtn("accSubmit", T.insertCard);
+    // Screen titles
+    setText("screen-acc", "h2", T.welcomeATM);
+    setText("screen-acc", ".muted", T.enterAcc);
+    setBtn("accSubmit", T.insertCard);
 
-  setText("screen-pin", "h2", T.enterPin);
-  setBtn("pinSubmit", T.submitPin);
-  setBtn("ejectBtn", T.eject);
+    setText("screen-pin", "h2", T.enterPin);
+    setBtn("pinSubmit", T.submitPin);
+    setBtn("ejectBtn", T.eject);
 
-  setText("screen-menu", ".muted", T.chooseAction);
+    setText("screen-menu", ".muted", T.chooseAction);
 
-  setText("screen-withdraw", "h2", T.withdrawTitle);
-  setBtn("withdrawSubmit", T.withdrawBtn);
+    setText("screen-withdraw", "h2", T.withdrawTitle);
+    setBtn("withdrawSubmit", T.withdrawBtn);
 
-  setText("screen-deposit", "h2", T.depositTitle);
-  setBtn("depositSubmit", T.depositBtn);
+    setText("screen-deposit", "h2", T.depositTitle);
+    setBtn("depositSubmit", T.depositBtn);
 
-  setText("screen-balance", "h2", T.balanceTitle);
+    setText("screen-balance", "h2", T.balanceTitle);
 
-  setText("screen-success", "h2", T.txnSuccess);
-  setText("successText", null, T.collectCash);
+    setText("screen-success", "h2", T.txnSuccess);
+    setText("successText", null, T.collectCash);
 
-  // Side buttons
-  setSpan("Withdrawalmsg", T.withdraw);
-  setSpan("balencemsg", T.balance);
-  setSpan("casedepositemsg", T.deposit);
-  setSpan("changepinmsg", T.changePin);
-  setSpan("ministatementmsg", T.miniStmt);
-  setSpan("exitmsg", T.exit);
+    // Side buttons
+    setSpan("Withdrawalmsg", T.withdraw);
+    setSpan("balencemsg", T.balance);
+    setSpan("casedepositemsg", T.deposit);
+    setSpan("changepinmsg", T.changePin);
+    setSpan("ministatementmsg", T.miniStmt);
+    setSpan("exitmsg", T.exit);
 
-  // Admin
-  setText("screen-admin", "h2", T.adminPanel);
-  setBtn("adminUnlock", T.unlockBtn);
+    // Admin
+    setText("screen-admin", "h2", T.adminPanel);
+    setBtn("adminUnlock", T.unlockBtn);
 
-  applyFeaturesLanguage();  // first page features list
-  applyFooterLanguage();    // footer
+    //
+    // FAQ Section
+    setByDataKey("faqsectiontitle", T.faqsectiontitle);
 
-  localStorage.setItem("lang", currentLang);
-}
+    setByDataKey("question1", T.question1);
+    setByDataKey("answer1", T.answer1);
+
+    setByDataKey("question2", T.question2);
+    setByDataKey("answer2", T.answer2);
+
+    setByDataKey("question3", T.question3);
+    setByDataKey("answer3", T.answer3);
+
+    setByDataKey("question4", T.question4);
+    setByDataKey("answer4", T.answer4);
+
+    setByDataKey("question5", T.question5);
+    setByDataKey("answer5", T.answer5);
+
+
+    applyFeaturesLanguage();  // first page features list
+    applyFooterLanguage();    // footer
+
+    localStorage.setItem("lang", currentLang);
+
+
+
+  }
+
 
   applyLanguage();
   
+
+  // /HELPER FUNCTION
+
+  function setText(parentId, selector, text) {
+    const el = selector
+      ? document.querySelector(`#${parentId} ${selector}`)
+      : document.getElementById(parentId);
+    if (el) el.textContent = text;
+  }
+
+  function setBtn(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+
+  function setSpan(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+
+
+  // js function to apply faqsection
+  function setByDataKey(key, value) {
+    const el = document.querySelector(`[data-key="${key}"]`);
+    if (el) el.textContent = value;
+  }
+  //language
+
+
+  $("lang-en").onclick = () => {
+    currentLang = "en";
+    applyLanguage();
+  };
+
+  $("lang-hi").onclick = () => {
+    currentLang = "hi";
+    applyLanguage();
+  };
+
+  /*  End of translating proccess*/
+  /*=================================================================================================== */
+
   
-// /HELPER FUNCTION
-
-function setText(parentId, selector, text) {
-  const el = selector
-    ? document.querySelector(`#${parentId} ${selector}`)
-    : document.getElementById(parentId);
-  if (el) el.textContent = text;
-}
-
-function setBtn(id, text) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = text;
-}
-
-function setSpan(id, text) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = text;
-}
-
-
-//language
-
-
-$("lang-en").onclick = () => {
-  currentLang = "en";
-  applyLanguage();
-};
-
-$("lang-hi").onclick = () => {
-  currentLang = "hi";
-  applyLanguage();
-};
-
-  /*End of translating proccess*/
-
-
-  
-// Button–Message Mapping
-const hoverMap = {
-  Withdrawal: "Withdrawalmsg",
-  balence: "balencemsg",
-  changepin: "changepinmsg",
-  casedeposite: "casedepositemsg",
-  ministatement: "ministatementmsg",
-  exit: "exitmsg",
-};
+  // Button–Message Mapping
+  const hoverMap = {
+    Withdrawal: "Withdrawalmsg",
+    balence: "balencemsg",
+    changepin: "changepinmsg",
+    casedeposite: "casedepositemsg",
+    ministatement: "ministatementmsg",
+    exit: "exitmsg",
+  };
 
          
 
-                    // DEMO ACCOUNT DATABASE
-                        const accounts = {};
+  // DEMO ACCOUNT DATABASE
+  const accounts = {};
 
   
-                    // Transaction History
-                    const transactions = {};
+  // Transaction History
+  const transactions = {};
 
   // ELEMENTS 
   const accInput = $("accNumber");
@@ -397,19 +465,21 @@ const hoverMap = {
   const balAmount = $("balAmount");
 
 
+  const faqQuestions = $$(".faq-question");
+
   
-                                                    /* dark/light mode  */
+  /* dark/light mode  */
   
   const toggleBtn = $("themeToggle");
 
   // Auto theme (system preference)
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (localStorage.getItem("theme") === "dark" ||(!localStorage.getItem("theme") && prefersDark) ) {
+  if (localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && prefersDark)) {
     document.body.classList.add("dark");
   }
 
-                                                      // Toggle manually
+  // Toggle manually
   toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 
@@ -420,6 +490,25 @@ const hoverMap = {
     }
   });
 
+
+  // faq handling
+
+  faqQuestions.forEach(question => {
+    
+    question.addEventListener("click", () => {
+      const answer = question.nextElementSibling;
+  
+      if (answer.style.maxHeight) {
+        console.log(answer.style.maxHeight);
+        answer.style.maxHeight = null;
+      } else {
+        document.querySelectorAll(".faq-answer").forEach(item => {
+          item.style.maxHeight = null;
+        });
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
 
   /* screen System*/
 
@@ -502,8 +591,7 @@ const hoverMap = {
         alert("Accounts are still loading. Please wait a moment and try again.");
         return;
       }
-      // const acc = accInput ? accInput.value.trim() : "";
-      const acc = accInput.value.trim();
+      const acc = accInput ? accInput.value.trim() : "";
       if (acc === "") {
         // alert("Enter account number!");
         if (pinMsg) pinMsg.textContent = "Enter account number!";
@@ -660,9 +748,7 @@ const hoverMap = {
       const dailyLimit = 25000;
 
 
-  // let todayWithdraw = Number(localStorage.getItem("todayWithdraw")) || 0;
-  // let lastWithdrawDate =
-  //   localStorage.getItem("lastWithdrawDate") || new Date().toDateString();
+  
 
       // loading user limit 
   function loadUserLimit() {
@@ -800,15 +886,7 @@ const hoverMap = {
   const withdrawBack = $("withdrawBack");
   if (withdrawBack) withdrawBack.onclick = () => show("screen-menu");
 
-            /*
-            
-          Daily limit:
-          “System tracks daily withdrawn amount and restricts excess withdrawal.”
-          Next day reset:
-          “Daily withdrawal resets automatically by comparing system date.”
-          Security:
-          “Invalid inputs are cleared to avoid user confusion.”
-          */
+          
 
   // DEPOSIT
   const casedepositeBtn = $("casedeposite");
@@ -1038,12 +1116,41 @@ const hoverMap = {
   if (errOk) errOk.onclick = () => show("screen-menu");
 
   // HELP
+  // const helpBtn = $("#helpBtn"); // ye sahi practice hai
   const helpBtn = $("helpBtn");
-  if (helpBtn) {
-    helpBtn.onclick = () => {
-      alert("Demo account: 12345678 / PIN: 1234");
-    };
+
+ 
+
+  // const helpBtn = document.querySelector("#helpBtn");
+const modal = document.querySelector("#helpModal");
+const closeBtn = document.querySelector(".close-btn");
+const copyBtn = document.querySelector("#copyBtn");
+const accountData = document.querySelector("#accountData");
+
+if (helpBtn) {
+  helpBtn.onclick = () => {
+    modal.style.display = "block";
+  };
+}
+
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
   }
+};
+
+copyBtn.onclick = () => {
+  navigator.clipboard.writeText(accountData.innerText);
+  copyBtn.innerText = " Copied ✔";
+  setTimeout(() => {
+    (copyBtn.innerText = "Copy");
+    }, 1500);
+};
+  
 
 
 
@@ -1059,23 +1166,29 @@ const hoverMap = {
 
 
   adminBtn.onclick = () => {
-   setTimeout(()=>{
+    setTimeout(() => {
+      
+      const pin = prompt("Enter Admin PIN");
+      // when pin wrong
+      if(pin !== ADMIN_PIN){
+        alert("Access Denied only for Admin");
+        return;
+      }
+      // if when pin is corrrect screen admin will be opened
+      adminActive = true;
+      document.body.classList.add("admin-active");
+      
+      //blur krne ke liye
+      // document.body.classList.add("blur-bg");
+  
+      const adminScreen = $("screen-admin");
+      if (adminScreen) adminScreen.classList.remove("hidden");
+      // adminScreen.style.filter = "blur(0)";
+      
+      if($("adminAcc")) $("adminAcc").focus();
 
-       const pin = prompt("Enter Admin PIN");
-    // when pin wrong
-    if(pin !== ADMIN_PIN){
-      alert("Access Denied only for Admin");
-      return;
-    }
-    // if when pin is corrrect screen admin will be opened
-    adminActive = true;
-    document.body.classList.add("admin-active");
-    
-    const adminScreen = $("screen-admin");
-   if (adminScreen) adminScreen.classList.remove("hidden");
-    $("adminAcc").focus();
-     
-   }, 0);
+
+    }, 0);
   };
   
       // for adminBack button
@@ -1084,7 +1197,9 @@ const hoverMap = {
     adminActive = false;
     
     document.body.classList.remove("admin-active");
-    
+    //vapa blur ko htane ke liye
+    // document.body.classList.remove("blur-bg");
+
     const adminScreen = $("screen-admin");
     if (adminScreen) adminScreen.classList.add("hidden");
 
@@ -1149,7 +1264,6 @@ const hoverMap = {
   
 
 }); // DOMContentLoaded end
-
 
 
 
