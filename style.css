@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/*  THEME VARIABLES */
+/*  theme variables */
 :root{
 --bg-main: linear-gradient(160deg, rgba(255,0,0,.3), rgba(0,0,255,.35), rgba(0,128,0,.35));
 --text-main: #111827;
@@ -19,7 +19,7 @@
 --light-box: #eef2ff;
 }
 
-/*  Dark mode */
+/*  dark mode */
 body.dark{
 --bg-main: linear-gradient(160deg,#0b1220,#111827,#0b1220);
 --text-main: #e5e7eb;
@@ -403,43 +403,6 @@ cursor:pointer;
      padding:.4rem;
      }
 
-/*      
-     .cash-slot{
-     height:30px;
-     min-width:40%;
-     background:linear-gradient(180deg,#f8fafc , #eef2ff);
-     border-radius:18px;
-     border:1px solid rgba(2,6,23,0.04);
-     display:flex;
-     align-items:center;
-     justify-content:center;
-     color:#353a45;
-     font-size:0.85rem;
-     cursor: pointer;
-     position: relative;
-     overflow: hidden;
-     transition:  all 0.3s linear;
-   }
-      /* .cash-slot:hover{
-      background: #3161e4;
-      } */
-   
-   /* .cash-slot::after{
-    content: "";
-    position: absolute;
-    left: 5%;
-    bottom: 4px;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-    transition: width 0.4s ease;
-    transition: all 0.4s ease;
-    border-radius: 5px;
-    transform: translateX(-50%);
-   }
-   .cash-slot::after{
-    width: 70%;
-   } */
    .cash-slot{
     position: relative;   
     height:30px;
@@ -461,23 +424,7 @@ cursor:pointer;
     color: white;
   }
   
-  /* .cash-slot::after{
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 4px;
-    width: 0;
-    min-height: 40%;
-    background: linear-gradient(90deg, #4877f9, #2857f2);
-    color: white;
-    transition: all 0.4s ease;
-    border-radius: 5px;
-    transform: translateX(-50%);
-  } */
-  
-  /* .cash-slot:hover::after{
-    width: 70%;   
-  } */
+
 
 
    /* help btn  */
@@ -615,9 +562,6 @@ cursor:pointer;
     
 
 
-
-
-
      /* hidden screens - we toggle with .hidden */
  .screen-area  .hidden{
      display:none
@@ -631,10 +575,6 @@ cursor:pointer;
      width:100%;
      color: black;
  }
-
- /* .menu {
-   display: none;
- } */
 
  .menu button{
      padding:.6rem;
@@ -704,23 +644,10 @@ transform: scale(1.05);
   z-index: 1000;
   /* transform: translateZ(50); */
 }
+
 #screen-admin.hidden {
   display: none;
 }
-
-/* body.blur-bg *:not(#screen-admin):not(#screen-admin *) {
-  filter: blur(4px);
-  pointer-events: none;
-} */
-
-/*
-💡 Why this works
-
-* = sab elements
-:not(#screen-admin) = admin panel blur nahi hoga
-:not(#screen-admin *) = admin panel ke children bhi safe
-✔ This is industry-level correct solution
-*/
 
 
 body.dark #screen-admin {
@@ -817,7 +744,7 @@ pointer-events:auto;
 opacity:1;
 }
 
-/* euyhekvedbk */
+/*screen admin */
 
 #screen-admin {
 position: fixed;
@@ -836,6 +763,123 @@ opacity: 0.6;
 
 
 
+ /*  faq section */
+
+.faq-section{
+  max-width: 50vw;
+  height: auto;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: var(--text-main);
+  border-radius: 18px;
+  background: var(--card-bg);
+  box-shadow: 0 10px 30px rgba(16,24,40,0.12);
+  border: 1px solid rgba(2,6,23,0.06);
+}
+
+.faq-section h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 15px;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  position: relative;
+}
+
+/* Underline animation */
+.faq-section h2::after{
+  content:"";
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg,var(--accent),var(--accent-dark));
+  display:block;
+  margin:10px auto 0;
+  border-radius:4px;
+}
+
+/* FAQ Item */
+.faq-item{
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--light-box);
+  transition: 0.3s ease;
+  border: 1px solid rgba(2,6,23,0.05);
+}
+
+/* Question Button */
+.faq-question{
+  width:100%;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: transparent;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+  color: var(--text-main);
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+.faq-question:hover{
+  background: linear-gradient(135deg,var(--accent),var(--accent-dark));
+  color:#fff;
+}
+
+/* Arrow icon */
+.faq-question::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  font-size:1.2rem;
+  transition:0.3s ease;
+}
+
+/* Active state */
+.faq-item.active .faq-question::after{
+  content:"−";
+}
+
+.faq-item.active .faq-question{
+  background: linear-gradient(135deg,var(--accent),var(--accent-dark));
+  color:#fff;
+}
+
+/* Answer */
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+  background: var(--card-bg);
+}
+
+.faq-answer p{
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+  line-height:1.6;
+  color: var(--muted-text);
+}
+
+/* ===============================
+   RESPONSIVE for faq */
+
+@media(max-width:768px){
+  .faq-section{
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+@media(max-width:480px){
+  .faq-section{
+    max-width: 100%;
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+}
 
  /* footer */
 
@@ -1220,8 +1264,6 @@ body{
  width:420px;
 }
 }
-
-
 
 
 
