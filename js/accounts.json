@@ -1,0 +1,30 @@
+{
+  "12345678": {
+    "pin": "1234",
+    "balance": 5000,
+    "name": "Ashlok",
+    "pinAttempts": 0,
+    "isLocked": false
+  },
+  "87654321": {
+    "pin": "4321",
+    "balance": 9000,
+    "name": "Anil",
+    "pinAttempts": 0,
+    "isLocked": false
+  },
+  "44441111":{
+   "pin": "4444",
+    "balance": 90000,
+    "name": "Sunil",
+    "pinAttempts": 0,
+    "isLocked": false
+  },
+  "12481632":{
+    "pin": "1248",
+     "balance": 90000,
+     "name": "Vikash",
+     "pinAttempts": 0,
+     "isLocked": false
+   }
+}
