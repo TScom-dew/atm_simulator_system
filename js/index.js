@@ -450,6 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pinInput = $("pinInput");
   const pinSubmit = $("pinSubmit");
   const pinMsg = $("pinMsg");
+  const accMsg = $("accMsg");
   const welcomeName = $("welcomeName");
 
   const withdrawAmt = $("withdrawAmt");
@@ -499,14 +500,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const answer = question.nextElementSibling;
   
       if (answer.style.maxHeight) {
-        console.log(answer.style.maxHeight);
+        // console.log(answer.style.maxHeight);
         answer.style.maxHeight = null;
       } else {
         document.querySelectorAll(".faq-answer").forEach(item => {
           item.style.maxHeight = null;
         });
-        answer.style.maxHeight = answer.scrollHeight + "px";
+        // answer.style.maxHeight = answer.scrollHeight + "px";
+        answer.style.maxHeight =`${answer.scrollHeight}px`;
       }
+  
     });
   });
 
@@ -518,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                       // Initially disable side buttons (if present)
   function setSideButtonsEnabled(enabled) {
-    for (let btnId in hoverMap) {
+    for (const btnId in hoverMap) {
       const btn = $(btnId);
       if (btn) {
         btn.disabled = !enabled;
@@ -529,24 +532,28 @@ document.addEventListener("DOMContentLoaded", () => {
   setSideButtonsEnabled(false);
 
                                         // Load accounts.json
+
+
+  if (accSubmit) accSubmit.disabled = true;
+
+fetch("js/accounts.json")
+  .then(res => res.json())
+  .then(data => {
+    Object.assign(accounts, data);
+    accountsLoaded = true;
+
+      if (accSubmit) {
+        accSubmit.disabled = false;
+      }
+  })
+  .catch(err => {
+    console.error("Error loading JSON:", err);
+  });
   
-  fetch("accounts.json")
-    .then(result => {
-      if (!result.ok) throw new Error("Failed to fetch accounts.json: " + result.status);
-      return result.json();
-    })
-    .then(data => {
-      Object.assign(accounts, data);
-      accountsLoaded = true;
-      
-    })
-    .catch(error => {
-      console.error("Error loading JSON:", error);
-      // keep accountsLoaded false; user will get message if they try to login
-    });
 
   
-  
+
+
   /*          ATM SCREEN SYSTEM      */
    function show(screenId){
     document.querySelectorAll(".screen-inner")
@@ -555,10 +562,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if(el) el.classList.remove("hidden");
      
   }
-  
 
+  
   // Hover messages - only if elements exist
-  for (let btnId in hoverMap) {
+  for (const btnId in hoverMap) {
     const button = $(btnId);
     const msg = $(hoverMap[btnId]);
     if (!button || !msg) continue;
@@ -575,54 +582,123 @@ document.addEventListener("DOMContentLoaded", () => {
   // Login pe lock state LOAD karo
 
   function loadLockState() {
-    const saved = JSON.parse( localStorage.getItem("lock_" + currentAccount));
+    const saved = JSON.parse( localStorage.getItem(`lock_${currentAccount}`));
   
     if (saved) {
       accounts[currentAccount].pinAttempts = saved.pinAttempts;
       accounts[currentAccount].isLocked = saved.isLocked;
     }
   }
+
+  // account status massege
+  function showError(msg) {
+    accMsg.textContent = msg;
+    accMsg.style.display = "block";
+  
+    setTimeout(() => {
+      accMsg.style.display = "none";
+    }, 2000);
+  }
+
+  //  when inputing the account 
+  accInput.addEventListener("input", () => {
+
+    accMsg.style.display = "none";
+
+    // only numbers allow
+    accInput.value = accInput.value.replace(/\D/g, "");
+  
+    // max 8 digit
+    if (accInput.value.length > 8) {
+      accInput.value = accInput.value.slice(0, 8);
+    }
+  });
+
+  // PIN Input Restriction
+  pinInput.addEventListener("input", () => {
+    pinInput.value = pinInput.value.replace(/\D/g, "").slice(0, 4);
+  });
+ 
   
 
   // ACCOUNT SUBMIT
   if (accSubmit) {
     accSubmit.onclick = () => {
+
       if (!accountsLoaded) {
-        alert("Accounts are still loading. Please wait a moment and try again.");
+        alert("Accounts are still loading...");
         return;
       }
+
       const acc = accInput ? accInput.value.trim() : "";
+
+
+
       if (acc === "") {
-        // alert("Enter account number!");
-        if (pinMsg) pinMsg.textContent = "Enter account number!";
+
+        //   show the massege
+        showError("Enter account number!");
+        accMsg.style.padding= "3%   10%";
+        accMsg.style.display = "block";
+       
+      
+        //  atomatically hide after 2 sec
+        setTimeout(() => {
+          accMsg.style.display = "none";
+        }, 2000);
+      
         return;
       }
+
       if (!accounts[acc]) {
-        // alert("Invalid account number!");
-        if (pinMsg) pinMsg.textContent = "Invalid account number!";
+
+        // show message
+        showError("Invalid account number!");
+        accMsg.style.padding= "3%   10%";
+        accMsg.style.display = "block";
+        
+        //  atomatically hide after 4 sec
+        setTimeout(() => {
+          accMsg.textContent = "";
+        accMsg.style.display = "none";
+         
+        }, 2000);
+        
         return;
       }
+
       currentAccount = acc;
-     
+      
+    
       if (accLabel) accLabel.textContent = acc;
 
       // Init empty history if not exists
       if (!transactions[currentAccount]) {
        transactions[currentAccount] = [];
         
-        // transactions[currentAccount] = transactions[currentAccount] + []; //isase all history load ho jayega
-        //localStorage me aur local storage ka memory size bahut kam hota hai
-        
+      
       }
 
+     
+
       loadLockState();// calling the function for account laoding
+
+//  if current account is locked or not
+      if (accounts[currentAccount].isLocked) {
+        show("screen-Acc-Lock");
+        return;
+      }
+      
 
       // show process then pin
       show("process-icon");
       setTimeout(() => {
-        show("screen-pin");
+        if($("pinInput")) $("pinInput").value = "";
         if($("pinInput")) $("pinInput").focus();
-      }, 800);
+        show("screen-pin");
+        if($("pinInput")) $("pinInput").value = "";
+        if($("pinInput")) $("pinInput").focus();
+      }, 700);
     };
   }
 
@@ -643,6 +719,7 @@ document.addEventListener("DOMContentLoaded", () => {
     accLockMsgBtn.onclick = () =>
     {
       currentAccount = null;
+
       if($("accNumber")) $("accNumber").value = "";
       if ($("pinInput")) $("pinInput").value = "";
 
@@ -650,6 +727,39 @@ document.addEventListener("DOMContentLoaded", () => {
       show("screen-acc");
     }
   }
+
+
+
+  //   for pin  dots
+
+  const dots = document.querySelectorAll("#pinDots span");
+if (pinInput) {
+  pinInput.addEventListener("input", () => {
+
+    // only numbers + max 4
+    pinInput.value = pinInput.value.replace(/\D/g, "").slice(0, 4);
+
+    const val = pinInput.value;
+
+    dots.forEach((dot, index) => {
+      if (index < val.length) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  });
+  }
+  
+  document.getElementById("pinDots").onclick = () => {
+    pinInput.focus();
+  };
+
+  // Jab PIN clear ho (wrong ya success), ye bhi add karo:
+
+function resetDots() {
+  dots.forEach(dot => dot.classList.remove("active"));
+}
   
 
   // PIN SUBMIT
@@ -666,41 +776,73 @@ document.addEventListener("DOMContentLoaded", () => {
       //  checking account locked or not
       
       if (acc.isLocked) {
-      
+        if (pinInput) {
+          pinInput.value = "";
+          resetDots();   //clearing pin value
+        }
         show("screen-Acc-Lock");
         return;
       }
   
       const enteredPin = pinInput.value.trim();
+
+      if (!enteredPin) {
+        setTimeout(() => {
+          pinMsg.textContent = "Enter PIN";
+        },200)
+        pinMsg.textContent = "";
+        return;
+      }
   
-      //  correct PIN
+      // if correct PIN
       if (enteredPin === acc.pin) {
-            acc.pinAttempts = 0; // reset
-             loadUserLimit();   //
-              saveLockState();
-            pinMsg.textContent = "";
-            welcomeName.textContent =
-              "Welcome, " + acc.name;
-            setSideButtonsEnabled(true);
-            show("screen-menu");
-            
-            return;
+        acc.pinAttempts = 0; // reset
+        saveLockState();
+        loadUserLimit();
+
+        pinMsg.textContent = "";
+        pinInput.value = "";   // for security clear
+      
+        resetDots();
+
+        welcomeName.textContent = `Welcome, ${acc.name}`;
+        setSideButtonsEnabled(true);
+        show("screen-menu");
+        
+        return;
       }
   
-      //  wrong PIN
+      // if  wrong PIN
       acc.pinAttempts++;
-  
+
+    
       if (acc.pinAttempts >= 3) {
-          acc.isLocked = true;
-          pinMsg.textContent ="Account locked after 3 wrong attempts!";
+        acc.isLocked = true;
+        pinMsg.textContent = "Account locked after 3 attempts! Check Help for demo PIN.";
       } else {
-        pinMsg.textContent =`Wrong PIN! Attempts left: ${3 - acc.pinAttempts}`;
+        pinMsg.innerHTML = `Wrong PIN! Attempts left: ${3 - acc.pinAttempts}
+        <br><span id="helpHint" class="help-btn">🔍 View Demo PIN</span>`;
       }
-  
+      
+      // atomatically open help btn
+      setTimeout(() => {
+        const helpHint = document.getElementById("helpHint");
+      
+        if (helpHint) {
+          helpHint.onclick = () => {
+            
+            document.querySelector("#helpModal").style.display = "block";
+          };
+        }
+      }, 0);
+
       saveLockState();
       pinInput.value = "";
+      resetDots();
       pinInput.focus();
     };
+    pinInput.value = "";
+    resetDots();
   }
 
   
@@ -710,7 +852,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ejectBtn.onclick = () => {
       currentAccount = null;
       if (accInput) accInput.value = "";
-      if (pinInput) pinInput.value = "";
+      if (pinInput) {
+        pinInput.value = "";
+        resetDots();
+      }
       setSideButtonsEnabled(false);
       show("screen-acc");
     };
@@ -721,7 +866,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btnLogout.onclick = () => {
       currentAccount = null;
       if (accInput) accInput.value = "";
-      if (pinInput) pinInput.value = "";
+      if (pinInput) {
+        pinInput.value = "";
+        resetDots();
+      }
       setSideButtonsEnabled(false);
       show("screen-acc");
     };
@@ -732,20 +880,19 @@ document.addEventListener("DOMContentLoaded", () => {
   
    /* BACK BUTTONS */
   
-  $("withdrawBack").onclick = () => show("screen-menu");
-  $("depositBack").onclick  = () => show("screen-menu");
-  $("balBack").onclick      = () => show("screen-menu");
-  $("changePinBack").onclick= () => show("screen-menu");
-  $("miniBack").onclick     = () => show("screen-menu");
-
-
- 
+  if ($("withdrawBack")) { $("withdrawBack").onclick = () => show("screen-menu"); };
+  if ($("depositBack")) { $("depositBack").onclick = () => show("screen-menu"); };
+  if ($("balBack")) { $("balBack").onclic = () => show("screen-menu"); };
+  if ($("changePinBack")) { $("changePinBack").onclick = () => show("screen-menu"); };
+  if ($("miniBack")) { $("miniBack").onclick = () => show("screen-menu"); };
+  
+  
   
 
   /*                  GLOBAL VARIABLES                   */
       let todayWithdraw = 0;
       let lastWithdrawDate = "";
-      const dailyLimit = 25000;
+      const dailyLimit = 250000;
 
 
   // let todayWithdraw = Number(localStorage.getItem("todayWithdraw")) || 0;
@@ -865,10 +1012,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       const cashSlot = $("cashSlot");
-      if (cashSlot) cashSlot.textContent = "Cash: ₹" + amt;
+      if (cashSlot) cashSlot.textContent = `Cash: ₹ ${amt}`;
 
       const successText = $("successText");
-      if (successText) successText.textContent = "Withdrawn ₹" + amt;
+      if (successText) successText.textContent = `Withdrawn ₹ ${amt}`;
       todayWithdraw += amt;
 
           localStorage.setItem(
@@ -885,18 +1032,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  const withdrawBack = $("withdrawBack");
-  if (withdrawBack) withdrawBack.onclick = () => show("screen-menu");
 
-            /*
-            
-          Daily limit:
-          “System tracks daily withdrawn amount and restricts excess withdrawal.”
-          Next day reset:
-          “Daily withdrawal resets automatically by comparing system date.”
-          Security:
-          “Invalid inputs are cleared to avoid user confusion.”
-          */
 
   // DEPOSIT
   const casedepositeBtn = $("casedeposite");
@@ -931,8 +1067,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (depositMsg) depositMsg.textContent = "Enter a valid amount";
         return;
       }
+      //  restoring final amount to current acc
       accounts[currentAccount].balance += amt;
 
+      //   storing history
       transactions[currentAccount].push({
         type: "Deposit",
         amount: amt,
@@ -1034,18 +1172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      /*
-      if you store your pin in localStorage means PIN persistence not implemented for security reasons
-      localStorage.setItem(
-            "pin_" + currentAccount,
-            newPinVal
-          );
-      
-      “PIN is not stored in localStorage because client-side storage is insecure.
-      In real systems, PINs are stored in encrypted form on the server.”
-      
-      or In real systems, PIN handling is server-side
-      */
+   
 
       accounts[currentAccount].pin = newPinVal;
       const successText = $("successText");
@@ -1059,39 +1186,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   
-  // ministatement or  history
+  // showing ministatement or  history
 
+ 
   
-  document.getElementById("ministatement").onclick = () => {
+   const miniBtn = $("ministatement");
 
-    // check account login or not
-     if (!currentAccount) {
-      alert("Please login first.");
-      return;
-    }
-    
-    const list = document.getElementById("miniList");
-    list.innerHTML = "";
-  
-    const last = transactions[currentAccount].slice(-20).reverse();
-  
-    if (last.length === 0) {
-      list.innerHTML = "<p>No transactions yet.</p>";
-    } else {
-      last.forEach(t => {
-        let item = document.createElement("p");
-        item.textContent = `${t.type}: ₹${t.amount} — ${t.time}`;
-        list.appendChild(item);
-      });
-    }
-  
-    setTimeout(() => show("screen-mini"), 100);
-  };
-
-
-
-  document.getElementById("miniBack").onclick = () => show("screen-menu");
-  
+   if (miniBtn) {
+     miniBtn.onclick = () => {
+       if (!currentAccount) {
+         alert("Please login first.");
+         return;
+       }
+   
+       const list = $("miniList");
+       if (!list) {
+         return;
+       }
+   
+       list.innerHTML = "";
+   
+       const last = transactions[currentAccount].slice(-20).reverse();
+   
+       if (last.length === 0) {
+         list.innerHTML = "<p>No transactions yet.</p>";
+       } else {
+         last.forEach(t => {
+           const item = document.createElement("p");
+           item.textContent = `${t.type}: ₹${t.amount} — ${t.time}`;
+           list.appendChild(item);
+         });
+       }
+   
+       show("screen-mini");
+     };
+   }
 
 
   // EXIT
@@ -1103,7 +1232,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       currentAccount = null;
       if (accInput) accInput.value = "";
-      if (pinInput) pinInput.value = "";
+      if (pinInput) {
+        pinInput.value = "";
+        resetDots();
+      }
       setSideButtonsEnabled(false);
       show("screen-acc");
     };
@@ -1129,20 +1261,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // const helpBtn = $("#helpBtn"); // ye sahi practice hai
   const helpBtn = $("helpBtn");
 
-  // const helpBtn = document.querySelector("#helpBtn");
-
-  // if (helpBtn) {
-  //   helpBtn.onclick = () => {
-  //     alert(
-  //       `Demo Account Details
-  
-  // Account: 12345678 | PIN: 1234
-  // Account: 87654321 | PIN: 4321
-  // Account: 44441111 | PIN: 4444
-  // Account: 12481632 | PIN: 1248`
-  //     );
-  //   };
-  // }
+ 
  
 
   // const helpBtn = document.querySelector("#helpBtn");
@@ -1157,9 +1276,11 @@ if (helpBtn) {
   };
 }
 
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-};
+if (closeBtn) {
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+}
 
 window.onclick = (e) => {
   if (e.target === modal) {
@@ -1167,13 +1288,16 @@ window.onclick = (e) => {
   }
 };
 
-copyBtn.onclick = () => {
-  navigator.clipboard.writeText(accountData.innerText);
-  copyBtn.innerText = " Copied ✔";
-  setTimeout(() => {
-    (copyBtn.innerText = "Copy");
+if (copyBtn && accountData) {
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(accountData.innerText);
+    copyBtn.innerText = "Copied ✔";
+
+    setTimeout(() => {
+      copyBtn.innerText = "Copy";
     }, 1500);
-};
+  };
+}
   
 
 
@@ -1239,48 +1363,38 @@ copyBtn.onclick = () => {
   }
 
   // adminUnlock button ke liye
+  
+
       const adminUnlockBtn = $("adminUnlock");
 
       if (adminUnlockBtn) {
         adminUnlockBtn.onclick = handleAdminUnlock;
       }
-     function handleAdminUnlock(){
-  
-      $("adminUnlock").onclick = () => {
+      
+      function handleAdminUnlock() {
         const acc = $("adminAcc").value.trim();
-        if(!accounts[acc]){
+      
+        if (!accounts[acc]) {
           $("adminMsg").textContent = "Account not found";
           return;
         }
-    
+      
         accounts[acc].isLocked = false;
         accounts[acc].pinAttempts = 0;
-        
-       
+      
         localStorage.setItem(
-            "lock_" + acc,
-            JSON.stringify({
-              pinAttempts: 0,
-              isLocked: false
-            })
-          );
-        
-         $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
-
-        
-    
-        //clearing adminAcc input 
+          "lock_" + acc,
+          JSON.stringify({
+            pinAttempts: 0,
+            isLocked: false
+          })
+        );
+      
+        $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
+      
         $("adminAcc").value = "";
-        
-         // resert account number
-          currentAccount = null;
-    
-      if ($("accNumber")) $("accNumber").value = "";
-      if ($("pinInput")) $("pinInput").value = "";
-    
-        
-      };
-  }
+        currentAccount = null;
+      }
   
 
   /*  INIT= Initialization (kisi cheez ko shuru me set karna)  */
