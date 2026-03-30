@@ -15,7 +15,7 @@
   <meta name="twitter:title" content="ATM Simulator Online – Live Demo Project">
   <meta name="twitter:description"
     content="Try ATM Simulator Online built using HTML, CSS and JavaScript. Free live demo with withdrawal, deposit, balance check and PIN change.">
-  <meta name="twitter:image" content="https://atmsimulatorsystem.vercel.app/image/preview.png">
+  <meta name="twitter:image" content="https://atmsimulatorsystem.vercel.app/preview.png">
 
   
   <!-- Theme Color (Mobile address bar color) -->
@@ -56,7 +56,7 @@
   <meta name="author" content=" Ashlok Kumar" />
 
   <!-- SEO Basic -->
-  <meta name="description" content="Interactive ATM Simulator Online built using HTML, CSS and JavaScript. Try free live demo with withdrawal, deposit, balance check, mini statement & PIN change. Perfect mini project with source code for BCA, MCA and computer science students.">
+ <meta name="description" content="Interactive ATM Simulator Online built using HTML, CSS and JavaScript. Try free live demo with withdrawal, deposit, balance check, mini statement & PIN change. Perfect mini project with source code for BCA, MCA and computer science students.">
  
   
   <meta name="keywords"  content="ATM Simulator System Project, ATM Simulator HTML CSS JavaScript, ATM mini project for students, banking project JavaScript, ATM project with source code, ATM simulator live demo, BCA MCA mini project ATM">
@@ -77,8 +77,7 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Favicon -->
-  <!-- <link rel="icon"  href="image/atm logo/image.png" type="image/png" /> -->
-  <link rel="icon"  href="OIP.jpeg" type="image/png" />
+  <link rel="icon"  href="image/atm logo/image.png" type="image/png" />
 
   <!-- main css file  -->
   <link rel="stylesheet" href="css/style.css">
@@ -130,11 +129,7 @@
       mini statement and PIN change.
   
     </p>
-    <!-- <section class="seo-text" style="display:none">
-      ATM Simulator System Project using HTML, CSS and JavaScript for students.
-      This ATM Simulator System project is useful for BCA, MCA, and computer science
-      students as a mini project example.
-    </section> -->
+   
 
     <ul  class="atm-features">
       <li data-key="featureWithdraw"><strong>Cash Withdrawal </strong><span> – Withdraw available cash from account</span></li>
@@ -155,7 +150,23 @@
       <div class="screen-inner" id="screen-acc">
         <h2>Welcome to the ATM</h2>
         <p class="muted">Enter your account number</p>
-        <input inputmode="numeric" id="accNumber" maxlength="8" placeholder=" 12345678" aria-label="Account number" required />
+      
+
+        <input 
+        type="number"
+        inputmode="numeric"
+        id="accNumber"
+        maxlength="8"
+        pattern="\d{8}"
+        inputmode="numeric"
+        placeholder=" 12345678"
+        aria-label="account number"
+        required
+      >
+
+        <!-- errror massege -->
+        <p id="accMsg" class="error"></p>
+      
         <button id="accSubmit" type="submit">Insert Card / Submit</button>
         <p class="note">Demo accounts: <strong>12345678</strong></p>
       </div>  
@@ -169,13 +180,26 @@
       <div class="screen-inner hidden" id="screen-pin">
         <h2>Enter PIN</h2>
         <p class="muted">For account: <span id="accLabel"></span></p>
-        <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN"  autofocus required />
+        <!-- new pin box -->
+          <div class="pin-box">
+            <input inputmode="numeric" id="pinInput" maxlength="4" autocomplete="off" />
+
+            <div id="pinDots">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+
         <div class="row" style="width:100">
           <button id="pinSubmit">Submit PIN</button>
           <button id="ejectBtn" class="right">Eject</button>
         </div>
         <p id="pinMsg" class="note"></p>
       </div>
+
       <!-- screen-3 -->
       <div class="screen-inner hidden" id="screen-menu">
         <h2 id="welcomeName">Welcome</h2>
@@ -415,7 +439,7 @@
         HTML, CSS and JavaScript. It simulates real ATM operations such as
         cash withdrawal, deposit, balance enquiry, mini statement and PIN change.
       </p>
-      
+     
     </div>
 
     <!-- Middle: Projects   part 2-->
@@ -424,9 +448,9 @@
       <h3 data-key="footerProjectsTitle" id="projects">Projects</h3>
       <ul>
         <li><a data-key="footerProject1" href="https://atmsimulatorsystem.vercel.app/" target="_blank" title="ATM Simulator System">ATM Simulator System</a></li>
-        <li><a data-key="footerProject2" href="https://hazaribagh-guide.vercel.app/" target="_blank" title="Hazaribagh — Town Guide">Hazaribagh — Town Guide</a></li>
+        <li><a data-key="footerProject2" href="https://kickoff-smoky.vercel.app/" target="_blank" title="Hazaribagh — Town Guide">Hazaribagh — Town Guide</a></li>
         <li><a data-key="footerProject3" href="https://my-portfolio-dun-one-65.vercel.app/" target="_blank" title=" My Portfolio-Ashlok Kumar"> My Portfolio -Ashlok Kumar</a></li>
-        <li><a data-key="footerProject4" href="https://forexlyglobal.vercel.app/" target="_blank" title="Currency Convertor"  >Currency Convertor</a></li>
+        <li><a data-key="footerProject4" href="Currency Convertor" target="_blank" title="Currency Convertor"  >Currency Convertor</a></li>
       </ul>
     </div>
 
@@ -434,9 +458,19 @@
     <div class="footer-col">
       <h3 data-key="footerConnectlink" id="socialLink">Connect with Me</h3>
       <ul class="social-links">
-        <li><a data-key="footerSocial1" href="https://www.linkedin.com/in/ashlok-kumar-701254258/"   target="_blank">LinkedIn</a></li>
-        <li><a data-key="footerSocial2" href="https://github.com/TScom-dew/"  target="_blank">GitHub</a></li>
-        <li><a data-key="footerSocial3" href="https://x.com/AshlokK29808"  target="_blank">Twitter / X</a></li>
+        <li>
+          <a data-key="footerSocial1" href="https://www.linkedin.com/in/ashlok-kumar-701254258/"   target="_blank"> 
+          LinkedIn
+        </a>
+        </li>
+        <li>
+          <a data-key="footerSocial2" href="https://github.com/TScom-dew/"  target="_blank">
+            GitHub
+          </a>
+          </li>
+        <li>
+          <a data-key="footerSocial3" href="https://x.com/AshlokK29808"  target="_blank">Twitter / X</a>
+        </li>
         <!-- <li><a data-key="footerSocial4" href="mailto:ashlok@gmail.com">Email</a></li> -->
       </ul>
     </div>
@@ -447,8 +481,9 @@
       <a href="https://github.com/TScom-dew/atm_simulator_system" 
          class="download-btn" 
          target="_blank" >
-         <i class="fab fa-github"></i> Get Source Code on GitHub (⭐ FREE)
+         <i class="fab fa-github"></i>  Get Source Code on GitHub (⭐ FREE)
       </a>
+      <!-- <p style="font-size: 12px; color: #666; margin-top: 5px;">⭐ Click 'Code' > 'Download ZIP' on GitHub</p> -->
     </div>
     
     
@@ -493,4 +528,3 @@
 
 
 
-<!-- END  -->
