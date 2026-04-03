@@ -8,28 +8,30 @@
 
 <link rel="icon" href="logo.png">
 
-<!-- ✅ SEO -->
+<!-- for Seo -->
 <meta name="description" content="Privacy Policy for ATM Simulator Project. Learn how user data is handled in this educational demo app." />
 <meta name="keywords" content="Privacy Policy, ATM Simulator, Demo Project, JavaScript App, User Data Policy" />
-<meta name="author" content="Your Name" />
+<meta name="author" content="Ashlok Kumar" />
 <meta name="robots" content="index, follow">
 
-<!-- ✅ Open Graph -->
+<!-- open Graph -->
 <meta property="og:title" content="ATM Simulator - Privacy Policy" />
 <meta property="og:description" content="Educational ATM Simulator. No real financial data is collected." />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="logo.png" />
+  <!-- Favicon -->
+  <link rel="icon"  href="image/atm logo/image.png" type="image/png" />
+
 
 <style>
 
-/* Reset */
+/* reset */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
-/* Theme */
+/* theme */
 :root{
   --bg-main: linear-gradient(160deg, rgba(255,0,0,.2), rgba(0,0,255,.25), rgba(0,128,0,.25));
   --text-main:#111827;
@@ -43,7 +45,7 @@
   --note-border : orange;
 }
 
-/* Dark Mode */
+/* dark mode */
 body.dark{
   --bg-main: linear-gradient(160deg,#0b1220,#111827,#020617);
   --text-main:#e5e7eb;
@@ -56,7 +58,7 @@ body.dark{
   --note-text: rgb(7, 14, 76);
 }
 
-/* Body */
+/* body */
 body{
   background: var(--bg-main);
   color: var(--text-main);
@@ -66,7 +68,7 @@ body{
   font-family: sans-serif;
 }
 
-/* Container */
+/* container */
 .container{
   max-width: clamp(320px, 75vw, 850px);
   margin:auto;
@@ -76,7 +78,7 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Header */
+/* header */
 header{
   text-align:center;
   margin-bottom:20px;
@@ -91,7 +93,7 @@ header p{
   font-size:14px;
 }
 
-/* Sections */
+/* sections */
 section{
   margin-bottom:25px;
 }
@@ -107,7 +109,7 @@ h3{
   color: var(--Sub-heading);
 }
 
-/* Lists */
+/* lists */
 ul{
   padding-left:20px;
 }
@@ -116,7 +118,7 @@ li{
   margin-bottom:5px;
 }
 
-/* Note */
+/* note */
 .note{
   background : var(--note-bg);
   padding:10px;
@@ -126,7 +128,7 @@ li{
   color:var(--note-text);
 }
 
-/* Button */
+/* button */
 .back-btn{
   margin-top:20px;
   padding:10px 20px;
@@ -149,6 +151,18 @@ body.dark .back-btn{
 body.dark .back-btn:hover{
   box-shadow: 2px 0 20px rgba(41,41,255,0.6);
 }
+
+.contact a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover{
+  text-decoration: underline;
+}
+
+
+
 
 /*  responsive ness */
 @media  ( max-width:500px ) {
@@ -186,7 +200,7 @@ Welcome to our ATM Simulator Web Application. This Privacy Policy explains how w
 <section>
 <h2>1. Information We Collect</h2>
 
-<h3>a) Non-Personal Information</h3>
+<h3>a Non-Personal Information</h3>
 <ul>
   <li>Browser type</li>
   <li>Device information</li>
@@ -195,7 +209,7 @@ Welcome to our ATM Simulator Web Application. This Privacy Policy explains how w
   <li>User interactions</li>
 </ul>
 
-<h3>b) Simulated User Input</h3>
+<h3>b Simulated User Input</h3>
 <ul>
   <li>Account number (demo only)</li>
   <li>PIN (demo only)</li>
@@ -273,9 +287,11 @@ We may update this policy anytime. Changes will be posted here.
 </p>
 </section>
 
-<section>
+<section class="contact">
 <h2>10. Contact</h2>
-<p>Email: your@email.com</p>
+<a  href="contact.html" >
+   Go to ATM project contact form
+  </a>
 </section>
 
 <button class="back-btn" onclick="history.back()">⬅ Back</button>
@@ -295,3 +311,6 @@ window.onload = function(){
 
 </body>
 </html>
+
+
+  <!--  END -->
