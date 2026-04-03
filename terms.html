@@ -144,13 +144,31 @@ body.dark .back-btn:hover{
   box-shadow: 2px 0 20px rgba(41,41,255,0.6);
 }
 
-.contact a{
-  color: var(--accent);
-  text-decoration: none;
+
+
+
+  
+.contact{
+  margin-top: 20px;
 }
 
-.contact a:hover{
-  text-decoration: underline;
+.contact-link{
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.contact-link:hover{
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+body.dark .contact-link:hover{
+  box-shadow: 0 0 15px rgba(100,100,255,0.6);
 }
 
 
@@ -260,8 +278,13 @@ These terms are governed by applicable laws.
 
 <section class="contact">
   <h2>10. Contact</h2>
-  <a  href="contact.html">
-     Go to ATM project contact form
+
+  <p>
+    If you have any questions, feedback, or suggestions, feel free to reach out.
+  </p>
+
+  <a href="contact.html" class="contact-link">
+    📩 Contact Me
   </a>
 </section>
 
