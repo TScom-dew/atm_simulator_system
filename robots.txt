@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TScom-dew.github.io/atm_simulator_system/sitemap.xml
