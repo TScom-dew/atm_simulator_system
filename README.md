@@ -66,7 +66,7 @@ Built using **HTML, CSS, and JavaScript** to demonstrate practical logic buildin
 
 ```
 ----
-######🔍 SEO optimized with sitemap.xml and robots.txt
+###### 🔍 SEO optimized with sitemap.xml and robots.txt
 ---
 
 ## ⚠️ Disclaimer
