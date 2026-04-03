@@ -56,9 +56,13 @@
   <meta name="author" content=" Ashlok Kumar" />
 
   <!-- SEO Basic -->
- <meta name="description" content="Interactive ATM Simulator Online built using HTML, CSS and JavaScript. Try free live demo with withdrawal, deposit, balance check, mini statement & PIN change. Perfect mini project with source code for BCA, MCA and computer science students.">
+  <!-- <meta name="description" content="ATM Simulator System Project using HTML, CSS & JavaScript with real ATM interface. Features include cash withdrawal, deposit, balance check, mini statement and PIN change. Live demo project for BCA, and computer science students."> -->
+<meta name="description" content="Interactive ATM Simulator Online built using HTML, CSS and JavaScript. Try free live demo with withdrawal, deposit, balance check, mini statement & PIN change. Perfect mini project with source code for BCA, MCA and computer science students.">
  
   
+<!-- 
+  <meta name="keywords"
+  content="ATM Simulator System, ATM mini project, HTML CSS JavaScript project, banking system project"> -->
   <meta name="keywords"  content="ATM Simulator System Project, ATM Simulator HTML CSS JavaScript, ATM mini project for students, banking project JavaScript, ATM project with source code, ATM simulator live demo, BCA MCA mini project ATM">
 
 
@@ -77,10 +81,12 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Favicon -->
-  <link rel="icon"  href="OIP.jpeg"  size="any" type="image/png" />
+  <link rel="icon"  href="image/atm logo/image.png" type="image/png" />
 
   <!-- main css file  -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+  <link rel="stylesheet" href="css/edit.css">
 
 
   <!-- Microsoft Clarity -->
@@ -129,7 +135,11 @@
       mini statement and PIN change.
   
     </p>
-   
+    <section class="seo-text" style="display:none">
+      ATM Simulator System Project using HTML, CSS and JavaScript for students.
+      This ATM Simulator System project is useful for BCA, MCA, and computer science
+      students as a mini project example.
+    </section>
 
     <ul  class="atm-features">
       <li data-key="featureWithdraw"><strong>Cash Withdrawal </strong><span> – Withdraw available cash from account</span></li>
@@ -180,6 +190,9 @@
       <div class="screen-inner hidden" id="screen-pin">
         <h2>Enter PIN</h2>
         <p class="muted">For account: <span id="accLabel"></span></p>
+
+        <!-- <input inputmode="numeric" id="pinInput" maxlength="4" placeholder="4-digit PIN" aria-label="PIN"  autofocus required  autocomplete="off"/> -->
+
         <!-- new pin box -->
           <div class="pin-box">
             <input inputmode="numeric" id="pinInput" maxlength="4" autocomplete="off" />
@@ -439,7 +452,9 @@
         HTML, CSS and JavaScript. It simulates real ATM operations such as
         cash withdrawal, deposit, balance enquiry, mini statement and PIN change.
       </p>
-     
+      <!-- <p  class="copyright"  id="footer-copy">
+        © 2026 Ashlok Kumar. All rights reserved.
+      </p> -->
     </div>
 
     <!-- Middle: Projects   part 2-->
@@ -448,7 +463,7 @@
       <h3 data-key="footerProjectsTitle" id="projects">Projects</h3>
       <ul>
         <li><a data-key="footerProject1" href="https://atmsimulatorsystem.vercel.app/" target="_blank" title="ATM Simulator System">ATM Simulator System</a></li>
-        <li><a data-key="footerProject2" href="https://hazaribagh-guide.vercel.app/" target="_blank" title="Hazaribagh — Town Guide">Hazaribagh — Town Guide</a></li>
+        <li><a data-key="footerProject2" href="https://kickoff-smoky.vercel.app/" target="_blank" title="Hazaribagh — Town Guide">Hazaribagh — Town Guide</a></li>
         <li><a data-key="footerProject3" href="https://my-portfolio-dun-one-65.vercel.app/" target="_blank" title=" My Portfolio-Ashlok Kumar"> My Portfolio -Ashlok Kumar</a></li>
         <li><a data-key="footerProject4" href="Currency Convertor" target="_blank" title="Currency Convertor"  >Currency Convertor</a></li>
       </ul>
@@ -515,16 +530,26 @@
   </div>
 
   <div class="footer-bottom">
+  
+    <p>
+      📩 <a href="contact.html">Contact Me</a>
+    </p>
     <p>
       © 2026 Ashlok Kumar. All rights reserved.
+    </p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="terms.html">Terms & Conditions</a>
     </p>
   </div>
 </footer>
 
 <script src="js/index.js"></script>
+<!-- <script src="1index.js"></script> -->
    
 </body>
 </html>
 
 
 
+<!-- END  -->
