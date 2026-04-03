@@ -45,16 +45,23 @@ Built using **HTML, CSS, and JavaScript** to demonstrate practical logic buildin
 ---
 
 ## 📁 Project Structure
+```
+📁 css/
+└── style.css
 
-/css
-/js
-/images
-index.html
-contact.html
-privacy.html
-terms.html
+📁 js/
+├── accounts.json
+├── faq-schema.js
+└── index.js
 
+📁 images/
 
+📄 index.html
+📄 contact.html
+📄 privacy.html
+📄 terms.html
+
+```
 
 ---
 
