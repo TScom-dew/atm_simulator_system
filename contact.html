@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | ATM Simulator Project</title>
+<!-- Favicon -->
+<link rel="icon"  href="image/atm logo/image.png" type="image/png" />
+
+<!-- SEO -->
+<meta name="description" content="Contact page for ATM Simulator Project. Send your queries or feedback." />
+<meta name="author" content="Ashlok Kumar" />
+<meta name="robots" content="index, follow">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* Theme */
+:root{
+  --bg-main: linear-gradient(160deg, rgba(255,0,0,.2), rgba(0,0,255,.25), rgba(0,128,0,.25));
+  --text-main:#111827;
+  --card-bg:#ffffff;
+  --accent:#2563eb;
+  --muted:#6b7280;
+  --Sub-heading:#1f2937;
+
+  --input-bg:#ffffff;
+  --input-border:#ccc;
+}
+
+/* dark mode */
+body.dark{
+  --bg-main: linear-gradient(160deg,#0b1220,#111827,#020617);
+  --text-main:#e5e7eb;
+  --card-bg:rgb(21, 33, 60);
+  --accent:#6366f1;
+  --muted:#dee2e8;
+  --Sub-heading:#cfd3d8;
+
+  --input-bg:#0f172a;
+  --input-border:#444;
+}
+
+/* body */
+body{
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: sans-serif;
+  line-height:1.6;
+  padding: clamp(0.8rem, 1.25rem, 1.5rem);
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+}
+
+/* container */
+.container{
+  max-width: clamp(320px, 75vw, 850px);
+  margin:auto;
+  background:var(--card-bg);
+  padding: clamp(1rem , 1.5rem, 1.8rem);
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* header */
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+header h1{
+  color:var(--accent);
+}
+
+header p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* section */
+section{
+  margin-top:10px;
+}
+
+/* form */
+form{
+  margin-top:15px;
+}
+
+label{
+  font-weight:500;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid var(--input-border);
+  margin-top:5px;
+  font-size:14px;
+  background:var(--input-bg);
+  color:var(--text-main); 
+  border-color: #2564eb92;
+}
+input:focus, textarea:focus{
+    outline: #eb2560;
+}
+
+/* button */
+button{
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  box-shadow: 2px 0 20px rgba(0,0,0,0.6);
+}
+
+body.dark button:hover{
+  box-shadow: 2px 0 20px rgba(41,41,255,0.6);
+}
+
+/* back button */
+.back-btn{
+  margin-top:20px;
+}
+
+/*  responsive */
+
+@media (max-width: 500px) {
+
+    /* body */
+    body{
+    padding:0;
+    background:var(--card-bg);
+    }
+
+    /* container */
+    .container{
+    max-width: 100%;
+    margin:0;
+    padding: clamp(1rem , 1.5rem, 1.8rem);
+    border-radius:0;
+   box-shadow:0 10px 25px rgba(0, 0, 0, 0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1>Contact Us</h1>
+  <p>Send your feedback or queries</p>
+</header>
+
+<section>
+  <!--  this form was created by using https://formspree.io/ -->
+<form action="https://formspree.io/f/meeprjzn" method="POST">
+
+  <!-- spam protection -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <label>Name</label>
+  <input type="text" name="name" required>
+
+  <label>Email</label>
+  <input type="email" name="email" required>
+
+  <label>Message</label>
+  <textarea name="message" rows="5" required></textarea>
+
+  <input type="hidden" name="time" id="time">
+
+  <button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+</div>
+
+<script>
+    window.onload = function(){
+      const savedTheme = localStorage.getItem("theme");
+      if(savedTheme === "dark"){
+        document.body.classList.add("dark");
+      }
+    }
+    
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", () => {
+    
+      // set correct time
+      document.getElementById("time").value = new Date().toLocaleString();
+    
+      // reset after submit
+      setTimeout(() => {
+        form.reset();
+      }, 1000);
+    });
+    </script>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
