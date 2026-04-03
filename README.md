@@ -13,7 +13,7 @@ Built using **HTML, CSS, and JavaScript** to demonstrate practical logic buildin
 ## 🛠 Tech Stack
 - HTML5
 - CSS3
-- JavaScript (Vanilla JS)
+- JavaScript
 
 ---
 
