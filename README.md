@@ -77,47 +77,6 @@ Feel free to open an issue or connect with me.
 
 ⭐ If you like this project, consider giving it a star!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 📸Project's Screenshots
-<img width="1904" height="857" alt="Screenshot 2026-02-01 082150" src="https://github.com/user-attachments/assets/3b785b88-ce8e-474a-9de0-d856fcd691fe" />
-
-
----
-
-## 🙌 Feedback
-Feedback and suggestions are welcome to help me improve and learn more.
-
-
-
 Thank you for seeing my repository!
 Made with love 💕💕💕...
 ________________________________________
