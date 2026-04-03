@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Terms & Conditions | ATM Simulator Project</title>
+
+<link rel="icon" href="logo.png">
+
+<!--  these are for seo -->
+<meta name="description" content="Terms and Conditions for ATM Simulator Project. Educational demo application with no real banking transactions." />
+<meta name="keywords" content="ATM Simulator, Terms and Conditions, Demo Banking App, JavaScript Project, Portfolio Project" />
+<meta name="author" content="Your Name" />
+
+<!-- these are for open graph -->
+<meta property="og:title" content="ATM Simulator - Terms & Conditions" />
+<meta property="og:description" content="Educational ATM Simulator project. No real banking transactions." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="logo.png" />
+
+<meta name="robots" content="index, follow">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* Theme */
+:root{
+  --bg-main: linear-gradient(160deg, rgba(255,0,0,.2), rgba(0,0,255,.25), rgba(0,128,0,.25));
+  --text-main:#111827;
+  --card-bg:#ffffff;
+  --accent:#2563eb;
+  --muted:#6b7280;
+  --Sub-heading:#1f2937;
+
+  --note-bg:#fff3cd;
+  --note-text: rgb(128, 22, 23);
+  --note-border : orange;
+}
+
+/* dark mode */
+body.dark{
+  --bg-main: linear-gradient(160deg,#0b1220,#111827,#020617);
+  --text-main:#e5e7eb;
+  --card-bg:rgb(21, 33, 60);
+  --accent:#6366f1;
+  --muted:#dee2e8;
+  --Sub-heading:#cfd3d8;
+
+  --note-bg:#fff3cd;
+  --note-text: rgb(7, 14, 76);
+  --note-border : orange;
+}
+
+/* body */
+body{
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height:1.6;
+  padding: clamp(0.8rem, 1.25rem, 1.5rem);
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+  font-family: sans-serif;
+}
+
+/* main container */
+.container{
+    max-width: clamp(320px, 75vw, 850px);
+    margin: auto;
+    background: var(--card-bg);
+    padding: clamp(1rem , 1.5rem, 1.8rem);
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  }
+
+/* header */
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+header h1{
+  color:var(--accent);
+}
+
+header p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* sections */
+section{
+  margin-bottom:25px;
+}
+
+h2{
+  margin-bottom:10px;
+  color:var(--Sub-heading);
+}
+
+/* lists */
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:5px;
+}
+
+/* note */
+.note{
+  background : var(--note-bg);
+  padding:10px;
+  border-left:4px solid  var(--note-border);
+  margin-top:10px;
+  border-radius:5px;
+  color:var(--note-text);
+}
+
+/* back button */
+.back-btn{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  box-shadow: 2px 0 20px rgba(0,0,0,0.6);
+}
+
+body.dark .back-btn{
+  background:#0f318e;
+}
+
+body.dark .back-btn:hover{
+  box-shadow: 2px 0 20px rgba(41,41,255,0.6);
+}
+
+
+/*  responsive ness */
+@media  ( max-width:500px ) {
+        /* body */
+        body{
+            padding: 0;
+        }
+
+        /* main container */
+        .container{
+    max-width: 100%;
+    border-radius: 8px;
+  }
+}
+ 
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1>Terms & Conditions</h1>
+  <p>Last Updated: 03 April 2026</p>
+</header>
+
+<section>
+<p>
+Welcome to our ATM Simulator Web Application. By using this website, you agree to the following terms and conditions.
+</p>
+</section>
+
+<section>
+<h2>1. Use of the Website</h2>
+<p>This website is created for educational and demonstration purposes only.</p>
+<p>You agree not to use this website for any illegal or harmful activities.</p>
+</section>
+
+<section>
+<h2>2. No Real Banking Services</h2>
+<ul>
+  <li>No real transactions are processed</li>
+  <li>No real accounts exist</li>
+  <li>All data is for simulation only</li>
+</ul>
+
+<div class="note">
+⚠️ This is not a real banking system. Do not enter real financial information.
+</div>
+</section>
+
+<section>
+<h2>3. User Responsibility</h2>
+<ul>
+  <li>Do not misuse the application</li>
+  <li>Do not attempt to hack or exploit the system</li>
+  <li>Understand that this is a demo environment</li>
+</ul>
+</section>
+
+<section>
+<h2>4. Limitation of Liability</h2>
+<ul>
+  <li>We are not responsible for any loss or damage</li>
+  <li>This project is for learning purposes only</li>
+</ul>
+</section>
+
+<section>
+<h2>5. Intellectual Property</h2>
+<p>
+All content, design, and code belong to the developer and may not be copied without permission.
+</p>
+</section>
+
+<section>
+<h2>6. Third-Party Services</h2>
+<p>
+We may use third-party tools such as analytics services.
+</p>
+</section>
+
+<section>
+<h2>7. Termination</h2>
+<p>
+We may restrict or terminate access at any time without notice.
+</p>
+</section>
+
+<section>
+<h2>8. Changes to Terms</h2>
+<p>
+These terms may be updated anytime. Continued use means acceptance.
+</p>
+</section>
+
+<section>
+<h2>9. Governing Law</h2>
+<p>
+These terms are governed by applicable laws.
+</p>
+</section>
+
+<section>
+<h2>10. Contact</h2>
+<p>Email: your@email.com</p>
+</section>
+
+<button class="back-btn" onclick="history.back()">⬅ Back</button>
+
+</div>
+
+<script>
+window.onload = function(){
+  const savedTheme = localStorage.getItem("theme");
+  if(savedTheme === "dark"){
+    document.body.classList.add("dark");
+  }
+}
+</script>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>
