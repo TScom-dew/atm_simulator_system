@@ -140,7 +140,6 @@
   .main-container{
   width:350px;
   min-height: 95vh;
-  /* background:linear-gradient(180deg,#eef2f6,#fff); */
   background: var(--card-bg);
   border-radius:18px;
   box-shadow:0 10px 30px rgba(16,24,40,0.12);
@@ -323,11 +322,6 @@
     background: black;
   }
 
-  /* #pinDots:focus-within {
-    border-color: #4877f9;
-    box-shadow: 0 0 6px rgba(72,119,249,0.5);
-  } */
-
 
   
    /* MINI STATEMENT SCREEN */
@@ -471,8 +465,6 @@
        align-items:center;
        justify-content:center;
       
-       /* border-top:10px solid rgba(2, 6, 23, 0.901); */
-       /* background: linear-gradient(180deg, #eef2ff, #e0e7ff); */
         color:#1e293b;
    
        }
@@ -552,34 +544,7 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       }
 
-       /*
-       #helpBtn {
-        font-weight: 525;
-        cursor: pointer;
-        height: 30px;
-        min-width: 50%;
-        border-radius: 18px;
-        border: 1px solid rgba(2,6,23,0.04);
-      
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      
-        color: #353a45;
-        font-size: 0.85rem;
-      
-        background: linear-gradient(90deg, #4877f9, #2857f2);
-        background-size: 200%;
-      
-       
-        transition: 
-          background-position 0.4s ease,
-          transform 0.2s ease,
-          box-shadow 0.3s ease,
-          color 0.3s ease;
-      }
-       
-       */
+    
   
   
        /* account model  */
@@ -1229,29 +1194,34 @@
   /* footer bootom */
 
   .footer-bottom{
+    margin-top:3rem;
+    padding-top:1.5rem;
+    padding-bottom: 1.1rem;
+    border-top:2px solid var(--muted-text);
     display: block;
     color: var(--accent);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
   }
-
+  
   .footer-bottom a{
-     color:var(--light-box);
-     text-decoration: none;
-     transition: all 0.3s  ease-in;
+    color: var(--light-box);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s  ease-in;
   }
 
+  body.dark .footer-bottom a {
+    color: lightblue ;
+    transition: all 0.3s  ease-in;
+  }
+  
   .footer-bottom a:hover{
-     text-decoration: underline;
-     color: var(--accent);
-  }
-
- 
-
-  body.dark  .footer-bottom a{
-    color: azure;
+    text-decoration: underline;
+    color: var(--accent);
   }
 
 
@@ -1410,15 +1380,15 @@
   
   .footer-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Default 2 columns layout */
+    grid-template-columns: 1fr 1fr;
     text-align: left;
   }
   
-  /* Pehla column (About Section) ko poori width dene ke liye */
+  
   .footer-wrapper .footer-col:nth-child(1) {
-    grid-column: 1 / span 2; /* Yeh 1st se lekar 2nd column tak phail jayega */
-    text-align: left;      /* Optional: Center text for full width look */
-    /* margin-bottom: 10px; */
+    grid-column: 1 / span 2; 
+    text-align: left;      
+    
   }  
 
 
@@ -1511,6 +1481,4 @@
   
   
   
-  
- /* END  */
-
+   /*   END */
