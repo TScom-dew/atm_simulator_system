@@ -61,8 +61,11 @@ Built using **HTML, CSS, and JavaScript** to demonstrate practical logic buildin
 📄 privacy.html
 📄 terms.html
 
-```
+📄 sitemap.xml   ← ✅ important
+📄 robots.txt    ← ✅ important
 
+```
+######🔍 SEO optimized with sitemap.xml and robots.txt
 ---
 
 ## ⚠️ Disclaimer
