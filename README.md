@@ -1,41 +1,111 @@
-
 # 💻 ATM Simulator System
 
-A frontend mini project that simulates basic ATM operations. Built using HTML, CSS, and JavaScript to practice real-world logic, DOM manipulation, and user interaction.
+A modern frontend project that simulates real-world ATM operations.  
+Built using **HTML, CSS, and JavaScript** to demonstrate practical logic building, DOM manipulation, and user interaction.
 
 ---
 
-## 🚀 Live Demo
-https://atmsimulatorsystem.vercel.app/
+## 🌐 Live Demo
+🔗 https://atmsimulatorsystem.vercel.app/
 
 ---
 
 ## 🛠 Tech Stack
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (Vanilla JS)
 
 ---
 
-## ✨ Features
-- User login with PIN validation
-- Balance enquiry
-- Withdraw money with validation
-- Deposit functionality
-- Error handling for invalid inputs
-- Clean and responsive UI
+## ✨ Key Features
+- 🔐 User login with PIN validation  
+- 💰 Balance enquiry system  
+- 💸 Withdraw functionality with validation  
+- 💵 Deposit feature  
+- ⚠️ Error handling for invalid inputs  
+- 🎨 Responsive and clean UI  
+- 🌙 Dark / Light mode support  
+- 📊 User behavior tracking using Microsoft Clarity  
 
 ---
 
 ## 📚 What I Learned
-- JavaScript logic and conditions
-- DOM manipulation
-- Form validation
-- Converting real-world systems into web applications
-- Deploying projects using Vercel
-- Basic SEO and Google indexing
+- Writing real-world application logic in JavaScript  
+- DOM manipulation and event handling  
+- Form validation techniques  
+- UI/UX design principles  
+- Deploying projects using Vercel  
+- SEO basics (Sitemap, Robots.txt, Indexing)
 
 ---
+
+## 📸 Screenshots
+![ATM Simulator Screenshot](https://github.com/user-attachments/assets/3b785b88-ce8e-474a-9de0-d856fcd691fe)
+
+---
+
+## 📁 Project Structure
+
+/css
+/js
+/images
+index.html
+contact.html
+privacy.html
+terms.html
+
+
+
+---
+
+## ⚠️ Disclaimer
+This project is created for **educational and demonstration purposes only**.  
+It does not perform any real banking transactions and does not store any real financial data.
+
+---
+
+## 🙌 Feedback
+Suggestions and feedback are always welcome!  
+Feel free to open an issue or connect with me.
+
+---
+
+## 👨‍💻 Author
+**Ashlok Kumar**
+
+---
+
+⭐ If you like this project, consider giving it a star!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 📸Project's Screenshots
 <img width="1904" height="857" alt="Screenshot 2026-02-01 082150" src="https://github.com/user-attachments/assets/3b785b88-ce8e-474a-9de0-d856fcd691fe" />
