@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Terms & Conditions | ATM Simulator Project</title>
-
-<link rel="icon" href="logo.png">
+<!-- Favicon -->
+<link rel="icon"  href="image/atm logo/image.png" type="image/png" />
 
 <!--  these are for seo -->
 <meta name="description" content="Terms and Conditions for ATM Simulator Project. Educational demo application with no real banking transactions." />
 <meta name="keywords" content="ATM Simulator, Terms and Conditions, Demo Banking App, JavaScript Project, Portfolio Project" />
-<meta name="author" content="Your Name" />
+<meta name="author" content="Ashlok Kumar" />
 
 <!-- these are for open graph -->
 <meta property="og:title" content="ATM Simulator - Terms & Conditions" />
@@ -144,6 +144,15 @@ body.dark .back-btn:hover{
   box-shadow: 2px 0 20px rgba(41,41,255,0.6);
 }
 
+.contact a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover{
+  text-decoration: underline;
+}
+
 
 /*  responsive ness */
 @media  ( max-width:500px ) {
@@ -249,10 +258,14 @@ These terms are governed by applicable laws.
 </p>
 </section>
 
-<section>
-<h2>10. Contact</h2>
-<p>Email: your@email.com</p>
+<section class="contact">
+  <h2>10. Contact</h2>
+  <a  href="contact.html">
+     Go to ATM project contact form
+  </a>
 </section>
+
+
 
 <button class="back-btn" onclick="history.back()">⬅ Back</button>
 
@@ -265,9 +278,15 @@ window.onload = function(){
     document.body.classList.add("dark");
   }
 }
+
 </script>
 
 <script src="js/index.js"></script>
 
 </body>
 </html>
+
+
+
+
+  <!--   END -->
