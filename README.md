@@ -65,6 +65,7 @@ Built using **HTML, CSS, and JavaScript** to demonstrate practical logic buildin
 📄 robots.txt    ← ✅ important
 
 ```
+----
 ######🔍 SEO optimized with sitemap.xml and robots.txt
 ---
 
