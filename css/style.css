@@ -69,9 +69,11 @@
    color: var(--accent);
    display: inline-block;
    position: relative;
-   cursor: pointer;
+  cursor: default;
    transition: color 0.3s ease;
   }
+
+
   
   /* underline */
   .atm-header::after{
@@ -84,6 +86,10 @@
    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
    transition: width 0.4s ease;
    border-radius: 5px;
+  }
+
+ #header-desc{
+    cursor: default;
   }
   
   .atm-features{
@@ -98,7 +104,7 @@
    border-radius: 10px;
    /* background: #f3f4f6; */
    background: var(--light-box);
-   cursor: pointer;
+    cursor: default;
    transition: all 0.35s ease;
    position: relative;
    overflow: hidden;
@@ -375,22 +381,7 @@
      background:#1d4ed8;
    }
   
-   
-   .btn-back {
-     margin-top: 15px;
-     padding: 10px 25px;
-     /* background: #1b5e20; */
-     background:#2563eb;
-     color: white;
-     border: none;
-     border-radius: 8px;
-     cursor: pointer;
-   }
-  
-   .btn-back:hover{
-     background:#1d4ed8;
-   }
-  
+
   
 
    /*   massege ke sath help button hai uska desining */
@@ -499,7 +490,7 @@
       justify-content:center;
       color:#353a45;
       font-size:0.85rem;
-      cursor: pointer;
+      cursor: default;
       overflow: hidden;  
       transition: background 0.6s linear , color 0.4s linear;  
     }
@@ -595,8 +586,8 @@
         text-align: center;
         font-size: 18px;
         font-weight: 600;
-        color: #4b4b9a; /* soft bluish text */
-        background: rgba(120, 120, 255, 0.15); /* light related bg */
+        color: #4b4b9a; 
+        background: rgba(120, 120, 255, 0.15); 
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.25s ease;
