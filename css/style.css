@@ -1196,12 +1196,22 @@
       align-items: center;
       width: 100%;
   }
+
+  .footer-bottom p{
+    text-align: center;
+    
+  }
+
+  .footer-bottom .span{
+    white-space: nowrap;
+  }
   
   .footer-bottom a{
     color: var(--light-box);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s  ease-in;
+    white-space: nowrap;
   }
 
   body.dark .footer-bottom a {
@@ -1213,7 +1223,6 @@
     text-decoration: underline;
     color: var(--accent);
   }
-
 
   
   
