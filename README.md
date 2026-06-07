@@ -80,14 +80,12 @@ Suggestions and feedback are always welcome!
 Feel free to open an issue or connect with me.
 
 ---
+## 👥 Maintainers & Contributors
 
-## 👨‍💻 Author
-**Ashlok Kumar**
+This project is built and maintained by the community for peer learning.
 
 ---
+⭐ If you support this mission, consider giving this repository a star!
 
-⭐ If you like this project, consider giving it a star!
-
-Thank you for seeing my repository!
-Made with love 💕💕💕...
+Thank you for exploring our ecosystem! 🚀
 ________________________________________
