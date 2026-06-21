@@ -20,7 +20,7 @@ A modern, responsive frontend project that simulates real-world ATM operations. 
 ## 🌐 Live Access
 This project is live and hosted on Vercel. You can access it directly via the link below:
 
-🔗 [View Live Application](https://atmsimulatorsystem.vercel.app/)
+#### 🔗 [View Live Application](https://atmsimulatorsystem.vercel.app/)
 ---
 
 ## ✨ Key Features
@@ -38,9 +38,11 @@ This project is live and hosted on Vercel. You can access it directly via the li
 ```text
 atm_simulator_system/
 ├── css/             # Stylesheets
-├── js/              # Logic: accounts.json, faq-schema.js, index.js
-├── images/          # Assets
+├── js/              # Logic files (accounts.json, faq-schema.js, index.js)
+├── images/          # Assets and media
 ├── index.html       # Main landing page
+├── privacy.html     # Privacy Policy
+├── terms.html       # Terms & Conditions
 ├── sitemap.xml      # SEO Sitemap
 └── robots.txt       # Search Engine crawler rules
 ```
