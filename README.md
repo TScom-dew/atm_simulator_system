@@ -1,91 +1,83 @@
-# 💻 ATM Simulator System
+# 💻 ATM Simulator System 🏧
+<p align="center">
+  <img src="https://img.shields.io/badge/Deployed_on-Vercel-brightgreen?style=flat-square" alt="Vercel">
+  <img src="https://img.shields.io/badge/Analytics-Microsoft_Clarity-0078D4?style=flat-square&logo=microsoft" alt="Microsoft Clarity">
 
-A modern frontend project that simulates real-world ATM operations.  
-Built using **HTML, CSS, and JavaScript** to demonstrate practical logic building, DOM manipulation, and user interaction.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-HTML5-orange.svg?style=flat-square" alt="HTML">
+  <img src="https://img.shields.io/badge/Language-CSS3-blue.svg?style=flat-square" alt="CSS">
+  <img src="https://img.shields.io/badge/Language-JavaScript-yellow.svg?style=flat-square" alt="JS">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/last-commit/TScom-dew/atm_simulator_system?style=flat-square" alt="Last Commit">
+</p>
+
+A modern, responsive frontend project that simulates real-world ATM operations. Built to demonstrate clean **JavaScript logic, DOM manipulation, and secure UI interactions**.
 
 ---
 
-## 🌐 Live Demo
-🔗 https://atmsimulatorsystem.vercel.app/
+## 🌐 Live Access
+This project is live and hosted on Vercel. You can access it directly via the link below:
 
----
-
-## 🛠 Tech Stack
-- HTML5
-- CSS3
-- JavaScript
-
+🔗 [View Live Application](https://atmsimulatorsystem.vercel.app/)
 ---
 
 ## ✨ Key Features
-- 🔐 User login with PIN validation  
-- 💰 Balance enquiry system  
-- 💸 Withdraw functionality with validation  
-- 💵 Deposit feature  
-- ⚠️ Error handling for invalid inputs  
-- 🎨 Responsive and clean UI  
-- 🌙 Dark / Light mode support  
-- 📊 User behavior tracking using Microsoft Clarity  
+* 🔐 **Authentication:** Secure PIN validation system.
+* 💰 **Financial Operations:** Real-time Balance Inquiry, Deposits, and Withdrawals.
+* ⚠️ **Defensive Coding:** Error handling for insufficient funds and invalid inputs.
+* 🎨 **Modern UI:** Responsive design with **Dark/Light Mode** support.
+* 📊 **Analytics:** User behavior tracking integrated via **Microsoft Clarity**.
+* 🚀 **SEO Optimized:** Includes `sitemap.xml` and `robots.txt` for better search indexing.
 
 ---
 
-## 📚 What I Learned
-- Writing real-world application logic in JavaScript  
-- DOM manipulation and event handling  
-- Form validation techniques  
-- UI/UX design principles  
-- Deploying projects using Vercel  
-- SEO basics (Sitemap, Robots.txt, Indexing)
-
----
-
-## 📸 Screenshots
-![ATM Simulator Screenshot](https://github.com/user-attachments/assets/3b785b88-ce8e-474a-9de0-d856fcd691fe)
-
----
 
 ## 📁 Project Structure
+```text
+atm_simulator_system/
+├── css/             # Stylesheets
+├── js/              # Logic: accounts.json, faq-schema.js, index.js
+├── images/          # Assets
+├── index.html       # Main landing page
+├── sitemap.xml      # SEO Sitemap
+└── robots.txt       # Search Engine crawler rules
 ```
-📁 css/
-└── style.css
 
-📁 js/
-├── accounts.json
-├── faq-schema.js
-└── index.js
+## 🎓 Learning Outcomes
 
-📁 images/
+1. Developing complex application logic in pure JavaScript.
+2. Implementing responsive UI/UX design principles.
+3. Deploying and optimizing web projects for global access.
+4. Basic SEO configuration for frontend projects.
 
-📄 index.html
-📄 contact.html
-📄 privacy.html
-📄 terms.html
 
-📄 sitemap.xml   ← ✅ important
-📄 robots.txt    ← ✅ important
-
-```
-----
-###### 🔍 SEO optimized with sitemap.xml and robots.txt
 ---
 
+## 📸 Preview
+![ATM Simulator Screenshot](https://github.com/user-attachments/assets/3b785b88-ce8e-474a-9de0-d856fcd691fe)
+
+
+---
 ## ⚠️ Disclaimer
-This project is created for **educational and demonstration purposes only**.  
-It does not perform any real banking transactions and does not store any real financial data.
+This project is for educational purposes only. It does not perform actual financial transactions or store sensitive user data.
 
 ---
 
-## 🙌 Feedback
-Suggestions and feedback are always welcome!  
-Feel free to open an issue or connect with me.
+## 🙌 Feedback & Support
+Suggestions and feedback are always welcome! Feel free to open an issue or connect with me if you have any questions or ideas for improvement.
+
 
 ---
-## 👥 Maintainers & Contributors
 
-This project is built and maintained by the community for peer learning.
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/TScom-dew">TScom-dew</a>
+</p>
 
----
-⭐ If you support this mission, consider giving this repository a star!
+<p align="center">
+  Happy Coding! ❤️
+</p>
 
-Thank you for exploring our ecosystem! 🚀
-________________________________________
+
+
