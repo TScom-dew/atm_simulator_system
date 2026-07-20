@@ -632,20 +632,7 @@ fetch("js/accounts.json")
 
       const acc = accInput ? accInput.value.trim() : "";
 
-      // if (!acc) {
-      //   //   show the massege
-      //   showError("Enter account number!");
-      //   accMsg.style.padding= "3%   10%";
-      //   accMsg.style.display = "block";
-        
-      //   //  atomatically hide after 1.5 sec
-      //   setTimeout(() => {
-      //     accMsg.textContent = "";
-      //     accMsg.style.display = "none";
-      //   }, 1500);
-        
-      //   return;
-      // }
+     
 
       if (acc === "") {
 
@@ -689,9 +676,7 @@ fetch("js/accounts.json")
       if (!transactions[currentAccount]) {
        transactions[currentAccount] = [];
         
-        // transactions[currentAccount] = transactions[currentAccount] + []; //isase all history load ho jayega
-        //localStorage me aur local storage ka memory size bahut kam hota hai
-        
+    
       }
 
      
@@ -910,10 +895,7 @@ function resetDots() {
       const dailyLimit = 250000;
 
 
-  // let todayWithdraw = Number(localStorage.getItem("todayWithdraw")) || 0;
-  // let lastWithdrawDate =
-  //   localStorage.getItem("lastWithdrawDate") || new Date().toDateString();
-
+  
       // loading user limit 
   function loadUserLimit() {
   todayWithdraw = Number(
@@ -1047,16 +1029,6 @@ function resetDots() {
     };
   }
 
-  
-            /*
-            
-          Daily limit:
-          “System tracks daily withdrawn amount and restricts excess withdrawal.”
-          Next day reset:
-          “Daily withdrawal resets automatically by comparing system date.”
-          Security:
-          “Invalid inputs are cleared to avoid user confusion.”
-          */
 
   // DEPOSIT
   const casedepositeBtn = $("casedeposite");
@@ -1196,18 +1168,7 @@ function resetDots() {
         return;
       }
 
-      /*
-      if you store your pin in localStorage means PIN persistence not implemented for security reasons
-      localStorage.setItem(
-            "pin_" + currentAccount,
-            newPinVal
-          );
-      
-      “PIN is not stored in localStorage because client-side storage is insecure.
-      In real systems, PINs are stored in encrypted form on the server.”
-      
-      or In real systems, PIN handling is server-side
-      */
+     
 
       accounts[currentAccount].pin = newPinVal;
       const successText = $("successText");
@@ -1296,20 +1257,7 @@ function resetDots() {
   // const helpBtn = $("#helpBtn"); // ye sahi practice hai
   const helpBtn = $("helpBtn");
 
-  // const helpBtn = document.querySelector("#helpBtn");
 
-  // if (helpBtn) {
-  //   helpBtn.onclick = () => {
-  //     alert(
-  //       `Demo Account Details
-  
-  // Account: 12345678 | PIN: 1234
-  // Account: 87654321 | PIN: 4321
-  // Account: 44441111 | PIN: 4444
-  // Account: 12481632 | PIN: 1248`
-  //     );
-  //   };
-  // }
  
 
   // const helpBtn = document.querySelector("#helpBtn");
@@ -1410,52 +1358,7 @@ if (copyBtn && accountData) {
     };
   }
 
-  // adminUnlock button ke liye
-      /* const adminUnlockBtn = $("adminUnlock");
-
-      if (adminUnlockBtn) {
-        adminUnlockBtn.onclick = handleAdminUnlock;
-      }
-     function handleAdminUnlock(){
-  
-      $("adminUnlock").onclick = () => {
-        const acc = $("adminAcc").value.trim();
-        if(!accounts[acc]){
-          $("adminMsg").textContent = "Account not found";
-          return;
-        }
-    
-        accounts[acc].isLocked = false;
-        accounts[acc].pinAttempts = 0;
-        
-       
-        localStorage.setItem(
-            "lock_" + acc,
-            JSON.stringify({
-              pinAttempts: 0,
-              isLocked: false
-            })
-          );
-        
-         $("adminMsg").textContent = `Account ${acc} unlocked successfully`;
-
-        
-    
-        //clearing adminAcc input 
-        $("adminAcc").value = "";
-        
-         // resert account number
-          currentAccount = null;
-    
-      if ($("accNumber")) $("accNumber").value = "";
-      if ($("pinInput")) $("pinInput").value = "";
-    
-        
-      };
-  } */
-  
-  
-  
+   
       const adminUnlockBtn = $("adminUnlock");
 
       if (adminUnlockBtn) {
