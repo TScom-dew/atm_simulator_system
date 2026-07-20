@@ -32,6 +32,13 @@
   --muted-text: #9ca3af;
   --light-box: #0f172a;
   }
+
+
+html{
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   
   body{
   width: 100%;
