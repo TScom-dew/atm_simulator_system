@@ -2,7 +2,6 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Deployed_on-Vercel-brightgreen?style=flat-square" alt="Vercel">
   <img src="https://img.shields.io/badge/Analytics-Microsoft_Clarity-0078D4?style=flat-square&logo=microsoft" alt="Microsoft Clarity">
-
 </p>
 
 <p align="center">
